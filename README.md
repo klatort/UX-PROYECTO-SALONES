@@ -8,7 +8,6 @@
 - Node: 18.16.0
 - Package Manager: npm 9.5.1
 - OS: win32 x64
-- 
-*La lista se irá actualizando dependiendo del desarrollo*
+- *La lista se irá actualizando dependiendo del desarrollo*
 
 # DONACIONES A MI YAPE +51 981109013
