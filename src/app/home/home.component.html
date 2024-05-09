@@ -1,0 +1,35 @@
+<div style="height: 100vh; width: 100vw; background-color: white">
+  <mat-toolbar
+    style="background-color: transparent; justify-content: space-between"
+    color="secondary"
+  >
+    <h1><span>Chapa tu aula! 📅</span></h1>
+    <div>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+      >
+        <mat-icon>share</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+  <button (click)="openCursos()" mat-fab class="add-button" color="warn">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

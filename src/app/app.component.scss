@@ -1,0 +1,23 @@
+.body-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-logo{
+  position: absolute;
+  top: calc(50% - 150px);
+  animation: upscale 4s infinite;
+}
+
+@keyframes upscale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

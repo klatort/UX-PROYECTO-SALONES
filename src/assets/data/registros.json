@@ -1,0 +1,646 @@
+{
+  "carreras": {
+    "Ingeniería en Sistemas": {
+      "planes": {
+        "2014": {
+          "cursos": [
+            { "ciclo": 1.0, "nombre": "MATEM\\ufffdTICA B\\ufffdSICA I" },
+            { "ciclo": 1.0, "nombre": "CALCULO I" },
+            {
+              "ciclo": 1.0,
+              "nombre": "INTRODUCCI\\ufffdN A LA COMPUTACI\\ufffdN"
+            },
+            { "ciclo": 1.0, "nombre": "COMUNICACI\\ufffdN Y DINAMICA GRUPO" },
+            { "ciclo": 1.0, "nombre": "TEORIA GENERAL DE SISTEMAS" },
+            { "ciclo": 1.0, "nombre": "ETICA DE LA PROFESION" },
+            {
+              "ciclo": 1.0,
+              "nombre": "ESTRATEGIAS DE APRENDIZAJE E INVESTIGACI\\ufffdN"
+            },
+            { "ciclo": 2.0, "nombre": "ECONOMIA" },
+            { "ciclo": 2.0, "nombre": "CREATIVIDAD Y LIDERAZGO" },
+            { "ciclo": 2.0, "nombre": "ALGORITMICA I" },
+            { "ciclo": 2.0, "nombre": "C\\ufffdLCULO II" },
+            { "ciclo": 2.0, "nombre": "FISICA GENERAL I" },
+            { "ciclo": 2.0, "nombre": "MATEMATICA BASICA II" },
+            { "ciclo": 2.0, "nombre": "REALIDAD NACIONAL" },
+            { "ciclo": 3.0, "nombre": "FISICA GENERAL II" },
+            { "ciclo": 3.0, "nombre": "PROBABILIDADES Y ESTAD\\ufffdSTICA" },
+            { "ciclo": 3.0, "nombre": "C\\ufffdLCULO III" },
+            { "ciclo": 3.0, "nombre": "ALGOR\\ufffdTMICA II" },
+            {
+              "ciclo": 3.0,
+              "nombre": "ORGANIZACI\\ufffdN Y ADMINISTRACI\\ufffdN"
+            },
+            { "ciclo": 3.0, "nombre": "MATEM\\ufffdTICA DISCRETA" },
+            { "ciclo": 4.0, "nombre": "CONTABILIDAD GENERAL" },
+            { "ciclo": 4.0, "nombre": "ESTRUCTURA DE DATOS" },
+            { "ciclo": 4.0, "nombre": "PROCESOS DE NEGOCIOS" },
+            { "ciclo": 4.0, "nombre": "SERIES Y ECUACIONES DIFERENCIALES" },
+            { "ciclo": 4.0, "nombre": "LEGUAJES Y COMPILADORES" },
+            { "ciclo": 4.0, "nombre": "SISTEMAS DIGITALES" },
+            { "ciclo": 5.0, "nombre": "INGENIER\\ufffdA ECON\\ufffdMICA" },
+            { "ciclo": 5.0, "nombre": "BASE DE DATOS I" },
+            {
+              "ciclo": 5.0,
+              "nombre": "AN\\ufffdLISIS DE SISTEMAS DE INFORMACI\\ufffdN"
+            },
+            { "ciclo": 5.0, "nombre": "M\\ufffdTODOS NUMERICOS" },
+            { "ciclo": 5.0, "nombre": "SISTEMAS OPERATIVOS" },
+            { "ciclo": 5.0, "nombre": "ARQUITECTURA DE COMPUTADORAS" },
+            { "ciclo": 5.0, "nombre": "ALGOR\\ufffdTMICA III" },
+            {
+              "ciclo": 6.0,
+              "nombre": "DISE\\ufffdO DE SISTEMAS DE INFORMACI\\ufffdN"
+            },
+            { "ciclo": 6.0, "nombre": "BASE DE DATOS II" },
+            {
+              "ciclo": 6.0,
+              "nombre": "GESTI\\ufffdN DE LOS PROCESOS DE NEGOCIOS"
+            },
+            { "ciclo": 6.0, "nombre": "REDES Y TRANSMISI\\ufffdN DE DATOS" },
+            { "ciclo": 6.0, "nombre": "INTELIGENCIA ARTIFICIAL" },
+            { "ciclo": 6.0, "nombre": "COMPUTACI\\ufffdN VISUAL" },
+            { "ciclo": 6.0, "nombre": "INVESTIGACI\\ufffdN OPERATIVA I" },
+            { "ciclo": 7.0, "nombre": "INTERFACE HOMBRE COMPUTADOR" },
+            {
+              "ciclo": 7.0,
+              "nombre": "PATRONES DE CONSTRUCCI\\ufffdN DE SISTEMAS"
+            },
+            { "ciclo": 7.0, "nombre": "FINANZAS PARA LA GESTI\\ufffdN" },
+            { "ciclo": 7.0, "nombre": "BASE DE DATOS III" },
+            {
+              "ciclo": 7.0,
+              "nombre": "INFRAESTRUCTURA Y SEGURIDAD EN REDES"
+            },
+            { "ciclo": 7.0, "nombre": "PROGRAMACI\\ufffdN PARALELA" },
+            { "ciclo": 7.0, "nombre": "INVESTIGACI\\ufffdN OPERATIVA II" },
+            {
+              "ciclo": 8.0,
+              "nombre": "TALLER DE CONSTRUCCI\\ufffdN DE SISTEMAS"
+            },
+            {
+              "ciclo": 8.0,
+              "nombre": "ADQUISICI\\ufffdN, ADMINISTRACI\\ufffdN Y ESTRAT\\ufffdGIA DE SISTEMAS DE INFORMACI\\ufffdN"
+            },
+            { "ciclo": 8.0, "nombre": "COMPUTACI\\ufffdN F\\ufffdSICA" },
+            {
+              "ciclo": 8.0,
+              "nombre": "GERENCIA DE PROYECTOS DE INFORMACI\\ufffdN"
+            },
+            {
+              "ciclo": 8.0,
+              "nombre": "GESTION DE SEGURIDAD Y RIESGO DE  TECNOLOGIA DE INFORMACI\\ufffdN"
+            },
+            { "ciclo": 8.0, "nombre": "MARKETING" },
+            { "ciclo": 8.0, "nombre": "PROYECTO DE TESIS" },
+            { "ciclo": 9.0, "nombre": "DESARROLLO DE TESIS I" },
+            { "ciclo": 9.0, "nombre": "SISTEMAS DISTRIBUIDOS" },
+            {
+              "ciclo": 9.0,
+              "nombre": "AUDITORIA Y CONTROL DE TECNOLOG\\ufffdA DE INFORMATICA"
+            },
+            { "ciclo": 9.0, "nombre": "CALIDAD Y PRUEBA DE SOFTWARE" },
+            { "ciclo": 9.0, "nombre": "ARQUITECTURA EMPRESARIAL" },
+            { "ciclo": 9.0, "nombre": "DERECHO INFORM\\ufffdTICO" },
+            { "ciclo": 10.0, "nombre": "INTEGRACI\\ufffdN DE SISTEMAS" },
+            { "ciclo": 10.0, "nombre": "SISTEMAS EMPRESARIALES" },
+            {
+              "ciclo": 10.0,
+              "nombre": "DESARROLLO DE APLICACIONES DISTRIBUIDAS"
+            },
+            { "ciclo": 10.0, "nombre": "GERENCIA INFORM\\ufffdTICA" },
+            {
+              "ciclo": 10.0,
+              "nombre": "TENDENCIAS EN SISTEMAS DE INFORMACI\\ufffdN"
+            },
+            { "ciclo": 10.0, "nombre": "DESARROLLO DE TESIS II" },
+            { "ciclo": null, "nombre": "ORATORIA II" },
+            { "ciclo": null, "nombre": "M\\ufffdSICA II" },
+            { "ciclo": null, "nombre": "TEATRO II" },
+            { "ciclo": null, "nombre": "DANZAS II" },
+            { "ciclo": null, "nombre": "DEPORTE Y RECREACI\\ufffdN I" },
+            { "ciclo": null, "nombre": "ORATORIA I" },
+            { "ciclo": null, "nombre": "M\\ufffdSICA I" },
+            { "ciclo": null, "nombre": "TEATRO I" },
+            { "ciclo": null, "nombre": "DANZAS I" },
+            { "ciclo": null, "nombre": "SISTEMAS INTELIGENTES" },
+            { "ciclo": null, "nombre": "ROB\\ufffdTICA" },
+            { "ciclo": null, "nombre": "INTELIGENCIA DE NEGOCIOS" },
+            {
+              "ciclo": null,
+              "nombre": "SISTEMAS DE INFORMACI\\ufffdN GEOGR\\ufffdFICOS"
+            },
+            { "ciclo": null, "nombre": "NEGOCIOS ELECTR\\ufffdNICOS" },
+            { "ciclo": null, "nombre": "GESTI\\ufffdN DEL CONOCIMIENTO" },
+            { "ciclo": null, "nombre": "INGENIER\\ufffdA WEB" },
+            { "ciclo": null, "nombre": "INGENIER\\ufffdA DE CONTROL" },
+            {
+              "ciclo": null,
+              "nombre": "APLICACI\\ufffdN DE ARQUITECTURA EMPRESARIAL"
+            },
+            { "ciclo": null, "nombre": "DEPORTE Y RECREACI\\ufffdN II" },
+            { "ciclo": null, "nombre": "REDES NEURONALES" }
+          ]
+        },
+        "2018": {
+          "cursos": [
+            { "ciclo": 1, "nombre": "PROCESO CULTURAL ANDINO " },
+            {
+              "ciclo": 1,
+              "nombre": "PROGRAMACI\\u00d3N Y COMPUTACI\\u00d3N"
+            },
+            {
+              "ciclo": 1,
+              "nombre": "MEDIO AMBIENTE Y DESARROLLO SOSTENIBLE "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "\\u00c1LGEBRA Y GEOMETR\\u00cdA ANAL\\u00cdTICA "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "BIOLOG\\u00cdA PARA CIENCIAS E INGENIER\\u00cdA "
+            },
+            { "ciclo": 1, "nombre": "C\\u00c1LCULO I " },
+            { "ciclo": 1, "nombre": "DESARROLLO PERSONAL Y LIDERAZGO " },
+            {
+              "ciclo": 1,
+              "nombre": "M\\u00c9TODOS DE ESTUDIO UNIVERSITARIO "
+            },
+            { "ciclo": 1, "nombre": "DIBUJO T\\u00c9CNICO " },
+            {
+              "ciclo": 1,
+              "nombre": "INGL\\u00c9S PARA ESCRITURA ACAD\\u00c9MICA "
+            },
+            { "ciclo": 1, "nombre": "MATLAB " },
+            {
+              "ciclo": 1,
+              "nombre": "C\\u00c1LCULOS B\\u00c1SICOS EN QU\\u00cdMICA "
+            },
+            { "ciclo": 1, "nombre": "SEGURIDAD E HIGIENE EN LABORATORIO " },
+            {
+              "ciclo": 1,
+              "nombre": "FUNDAMENTOS DE RIESGOS DE DESASTRES Y CAMBIO CLIM\\u00c1TICO "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "GEOGRAFIA ECON\\u00d3MICA DEL PER\\u00da "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "CIUDADAN\\u00cdA Y DERECHOS FUNDAMENTALES "
+            },
+            { "ciclo": 1, "nombre": "TALLER DE ELECTRICIDAD Y ELECTRONICA" },
+            { "ciclo": 1, "nombre": "ECONOMIA GENERAL " },
+            { "ciclo": 1, "nombre": "EMPRENDIMIENTO E INNOVACI\\u00d3N " },
+            { "ciclo": 1, "nombre": "TALLER DE M\\u00daSICA " },
+            { "ciclo": 1, "nombre": "TALLER DE DANZA " },
+            { "ciclo": 1, "nombre": "APRECIACI\\u00d3N DE CINE " },
+            { "ciclo": 1, "nombre": "QUECHUA " },
+            {
+              "ciclo": 1,
+              "nombre": "REDACCI\\u00d3N Y T\\u00c9CNICAS DE COMUNICACI\\u00d3N EFECTIVA I "
+            },
+            { "ciclo": 2, "nombre": "INVESTIGACI\\u00d3N FORMATIVA " },
+            {
+              "ciclo": 2,
+              "nombre": "REDACCI\\u00d3N Y T\\u00c9CNICAS DE COMUNICACI\\u00d3N EFECTIVA II "
+            },
+            { "ciclo": 2, "nombre": "QU\\u00cdMICA GENERAL " },
+            { "ciclo": 2, "nombre": "F\\u00cdSICA I " },
+            { "ciclo": 2, "nombre": "C\\u00c1LCULO II" },
+            { "ciclo": 2, "nombre": "REALIDAD NACIONAL Y MUNDIAL " },
+            {
+              "ciclo": 2,
+              "nombre": "INTRODUCCI\\u00d3N A LAS CIENCIAS E INGENIER\\u00cdA "
+            },
+            {
+              "ciclo": 3,
+              "nombre": "PROGRAMACI\\u00d3N Y FUNDAMENTOS DE ALGOR\\u00cdTMICA"
+            },
+            { "ciclo": 3, "nombre": "TEOR\\u00cdA GENERAL DE SISTEMAS" },
+            {
+              "ciclo": 3,
+              "nombre": "ORGANIZACI\\u00d3N Y ADMINISTRACI\\u00d3N"
+            },
+            { "ciclo": 3, "nombre": "INGENIER\\u00cdA ECONOMICA" },
+            { "ciclo": 3, "nombre": "ESTADISTICA" },
+            { "ciclo": 3, "nombre": "SERIES Y ECUACIONES DIFERENCIALES" },
+            { "ciclo": 3, "nombre": "MATEM\\u00c1TICAS DISCRETAS" },
+            { "ciclo": 4, "nombre": "CONTABILIDAD GENERAL" },
+            {
+              "ciclo": 4,
+              "nombre": "ALGOR\\u00cdTMICA Y PROGRAMACI\\u00d3N ORIENTADA A OBJETOS"
+            },
+            { "ciclo": 4, "nombre": "MARKETING" },
+            { "ciclo": 4, "nombre": "PROCESOS DE NEGOCIOS" },
+            { "ciclo": 4, "nombre": "METODOS NUMERICOS" },
+            { "ciclo": 4, "nombre": "PROBABILIDADES Y MUESTERO" },
+            {
+              "ciclo": 4,
+              "nombre": "FISICA ELECTRONICA Y SISTEMAS DIGITALES"
+            },
+            { "ciclo": 5, "nombre": "ESTRUCTURA DE DATOS" },
+            { "ciclo": 5, "nombre": "DISE\\u00d1O Y ANALISIS DE ALGORITMOS" },
+            { "ciclo": 5, "nombre": "BASE DE DATOS" },
+            {
+              "ciclo": 5,
+              "nombre": "ANALISIS DE SISTEMAS DE INFORMACI\\u00d3N"
+            },
+            { "ciclo": 5, "nombre": "LENGUAJES Y COMPILADORES" },
+            { "ciclo": 5, "nombre": "ARQUITECTURA DE COMPUTADORAS" },
+            { "ciclo": 5, "nombre": "MODELOS Y SIMULACI\\u00d3N" },
+            { "ciclo": 6, "nombre": "BIG DATA" },
+            { "ciclo": 6, "nombre": "COMPUTACI\\u00d3N VISUAL" },
+            { "ciclo": 6, "nombre": "FINANZAS PARA LA GESTI\\u00d3N" },
+            {
+              "ciclo": 6,
+              "nombre": "REDES, TRANSMISI\\u00d3N Y AUTOMATIZACI\\u00d3N Y CONTROL"
+            },
+            { "ciclo": 6, "nombre": "INVESTIGACI\\u00d3N OPERATIVA" },
+            {
+              "ciclo": 6,
+              "nombre": "DISE\\u00d1O DE SISTEMAS DE INFORMACI\\u00d3N"
+            },
+            { "ciclo": 6, "nombre": "SISTEMAS OPERATIVOS" },
+            { "ciclo": 7, "nombre": "INTELIGENCIA DE NEGOCIOS" },
+            { "ciclo": 7, "nombre": "INTERACCI\\u00d3N HOMBRE COMPUTADOR " },
+            { "ciclo": 7, "nombre": "DESARROLLO DE SISTEMAS WEB" },
+            { "ciclo": 7, "nombre": "PROGRAMACI\\u00d3N PARALELA" },
+            { "ciclo": 7, "nombre": "INTERNET DE LAS COSAS" },
+            { "ciclo": 7, "nombre": "INTELIGENCIA ARTIFICIAL" },
+            {
+              "ciclo": 7,
+              "nombre": "FORMULACI\\u00d3N Y EVALUACI\\u00d3N DE PROYECTOS"
+            },
+            { "ciclo": 8, "nombre": "SISTEMAS DISTRIBUIDOS" },
+            {
+              "ciclo": 8,
+              "nombre": "METODOLOGIA DE LA ELABORACI\\u00d3N DE TESIS"
+            },
+            { "ciclo": 8, "nombre": "DESARROLLO DE SISTEMAS M\\u00d3VILES" },
+            { "ciclo": 8, "nombre": "INGENIERIA DE LA INFORMACI\\u00d3N" },
+            {
+              "ciclo": 8,
+              "nombre": "GESTI\\u00d3N DE PROYECTOS DE TECNOLOG\\u00cdAS DE LA INFORMACI\\u00d3N"
+            },
+            { "ciclo": 8, "nombre": "SISTEMAS INTELIGENTES" },
+            {
+              "ciclo": 8,
+              "nombre": "AUDITORIA Y SEGURIDAD DE TECNOLOGIAS DE INFORMACI\\u00d3N"
+            },
+            { "ciclo": 9, "nombre": "MINERIA DE DATOS" },
+            { "ciclo": 9, "nombre": "DESARROLLO DE PROYECTOS DE TESIS I" },
+            { "ciclo": 9, "nombre": "TALLER DE APLICACIONES DISTRIBUIDAS" },
+            {
+              "ciclo": 9,
+              "nombre": "TENDENCIAS EN SISTEMAS DE INFORMACI\\u00d3N"
+            },
+            { "ciclo": 9, "nombre": "ETICA Y DERECHO INFORM\\u00c1TICO" },
+            { "ciclo": 9, "nombre": "ARQUITECTURA EMPRESARIAL" },
+            {
+              "ciclo": 9,
+              "nombre": "INNOVACI\\u00d3N, CAMBIO ORGANIZACIONAL Y EMPRENDIMIENTO"
+            },
+            { "ciclo": 10, "nombre": "DESARROLLO DE PROYECTOS DE TESIS II" },
+            { "ciclo": 10, "nombre": "PRACTICA PRE PROFESIONAL" },
+            { "ciclo": 10, "nombre": "GESTI\\u00d3N DE CONOCIMIENTO" },
+            {
+              "ciclo": 10,
+              "nombre": "PLANEAMIENTO DE RECURSOS EMPRESARIALES"
+            },
+            { "ciclo": 10, "nombre": "GERENCIA INFORM\\u00c1TICA" }
+          ]
+        },
+        "2023": {
+          "cursos": [
+            {
+              "ciclo": 1,
+              "nombre": "REDACCI\\u00d3N Y T\\u00c9CNICAS DE COMUNICACI\\u00d3N EFECTIVA I "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "\\u00c1LGEBRA Y GEOMETR\\u00cdA ANAL\\u00cdTICA "
+            },
+            { "ciclo": 1, "nombre": "DESARROLLO PERSONAL Y LIDERAZGO " },
+            { "ciclo": 1, "nombre": "C\\u00c1LCULO I " },
+            {
+              "ciclo": 1,
+              "nombre": "BIOLOG\\u00cdA PARA CIENCIAS E INGENIER\\u00cdA "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "M\\u00c9TODOS DE ESTUDIO UNIVERSITARIO "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "MEDIO AMBIENTE Y DESARROLLO SOSTENIBLE "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "PROGRAMACI\\u00d3N Y COMPUTACI\\u00d3N"
+            },
+            { "ciclo": 2, "nombre": "F\\u00cdSICA I " },
+            { "ciclo": 2, "nombre": "C\\u00c1LCULO II" },
+            { "ciclo": 2, "nombre": "REALIDAD NACIONAL Y MUNDIAL " },
+            { "ciclo": 2, "nombre": "INVESTIGACI\\u00d3N FORMATIVA " },
+            {
+              "ciclo": 2,
+              "nombre": "REDACCI\\u00d3N Y T\\u00c9CNICAS DE COMUNICACI\\u00d3N EFECTIVA II "
+            },
+            { "ciclo": 2, "nombre": "QU\\u00cdMICA GENERAL " },
+            {
+              "ciclo": 2,
+              "nombre": "INTRODUCCI\\u00d3N A LAS CIENCIAS E INGENIER\\u00cdA "
+            },
+            { "ciclo": 2, "nombre": "EMPRENDIMIENTO E INNOVACI\\u00d3N" },
+            { "ciclo": 3, "nombre": "MATEM\\u00c1TICAS DISCRETAS  " },
+            {
+              "ciclo": 3,
+              "nombre": "FUNDAMENTOS DE SISTEMAS DE INFORMACI\\u00d3N  "
+            },
+            { "ciclo": 3, "nombre": "PROGRAMACI\\u00d3N DE COMPUTADORAS I " },
+            { "ciclo": 3, "nombre": "ELECTROMAGNETISMO Y \\u00d3PTICA  " },
+            {
+              "ciclo": 3,
+              "nombre": "INTRODUCCI\\u00d3N A LA COMPUTACI\\u00d3N "
+            },
+            { "ciclo": 3, "nombre": "SERIES Y ECUACIONES DIFERENCIALES " },
+            { "ciclo": 4, "nombre": "ARQUITECTURA DE COMPUTADORAS " },
+            { "ciclo": 4, "nombre": "INGENIER\\u00cdA ECON\\u00d3MICA " },
+            { "ciclo": 4, "nombre": "ESTAD\\u00cdSTICA I " },
+            { "ciclo": 4, "nombre": "M\\u00c9TODOS NUM\\u00c9RICOS " },
+            {
+              "ciclo": 4,
+              "nombre": "PROGRAMACI\\u00d3N DE COMPUTADORAS II "
+            },
+            { "ciclo": 4, "nombre": "ORGANIZACI\\u00d3N EMPRESARIAL  " },
+            { "ciclo": 5, "nombre": "ESTAD\\u00cdSTICA II " },
+            {
+              "ciclo": 5,
+              "nombre": "AN\\u00c1LISIS DE SISTEMAS DE INFORMACI\\u00d3N "
+            },
+            { "ciclo": 5, "nombre": "ESTRUCTURA DE DATOS  " },
+            { "ciclo": 5, "nombre": "DISE\\u00d1O DE BASE DE DATOS " },
+            { "ciclo": 5, "nombre": "SISTEMAS OPERATIVOS " },
+            { "ciclo": 5, "nombre": "INVESTIGACI\\u00d3N OPERATIVA " },
+            {
+              "ciclo": 6,
+              "nombre": "DISE\\u00d1O DE INTERFASES DE USUARIO "
+            },
+            { "ciclo": 6, "nombre": "MODELOS Y SIMULACI\\u00d3N " },
+            { "ciclo": 6, "nombre": "FINANZAS PARA LA GESTI\\u00d3N " },
+            {
+              "ciclo": 6,
+              "nombre": "DISE\\u00d1O DE SISTEMAS DE INFORMACI\\u00d3N "
+            },
+            {
+              "ciclo": 6,
+              "nombre": "ADMINISTRACI\\u00d3N DE BASE DE DATOS "
+            },
+            { "ciclo": 6, "nombre": "REDES Y COMUNICACIONES " },
+            { "ciclo": 7, "nombre": "INTERACCI\\u00d3N HUMANO COMPUTADOR  " },
+            { "ciclo": 7, "nombre": "DESARROLLO DE APLICACIONES WEB " },
+            { "ciclo": 7, "nombre": "INTELIGENCIA ARTIFICIAL " },
+            { "ciclo": 7, "nombre": "INTERNET DE LAS COSAS " },
+            { "ciclo": 7, "nombre": "GESTI\\u00d3N DE DATOS MASIVOS " },
+            { "ciclo": 7, "nombre": "INTELIGENCIA DE NEGOCIOS " },
+            { "ciclo": 8, "nombre": "SISTEMAS DISTRIBUIDOS " },
+            {
+              "ciclo": 8,
+              "nombre": "DESARROLLO DE APLICACIONES M\\u00d3VILES "
+            },
+            {
+              "ciclo": 8,
+              "nombre": "METODOLOG\\u00cdA DE LA INVESTIGACI\\u00d3N "
+            },
+            { "ciclo": 8, "nombre": "GESTI\\u00d3N DE PROYECTOS DE TI " },
+            { "ciclo": 8, "nombre": "SISTEMAS INTELIGENTES " },
+            { "ciclo": 8, "nombre": "COMPUTACI\\u00d3N VISUAL " },
+            { "ciclo": 9, "nombre": "ARQUITECTURA EMPRESARIAL " },
+            { "ciclo": 9, "nombre": "SEGURIDAD DE LA INFORMACI\\u00d3N " },
+            { "ciclo": 9, "nombre": "PROYECTO DE TESIS I " },
+            { "ciclo": 9, "nombre": "GESTI\\u00d3N DE PROCESOS DE NEGOCIO " },
+            { "ciclo": 9, "nombre": "MINER\\u00cdA DE DATOS " },
+            { "ciclo": 9, "nombre": "AUDITOR\\u00cdA DE SISTEMAS  " },
+            { "ciclo": 10, "nombre": "ARQUITECTURA DE SERVICIOS " },
+            {
+              "ciclo": 10,
+              "nombre": "GESTI\\u00d3N DE TECNOLOG\\u00cdAS DE INFORMACI\\u00d3N "
+            },
+            {
+              "ciclo": 10,
+              "nombre": "TENDENCIAS EN SISTEMAS DE INFORMACI\\u00d3N "
+            },
+            { "ciclo": 10, "nombre": "PROYECTO DE FIN DE CARRERA   " },
+            {
+              "ciclo": 10,
+              "nombre": "\\u00c9TICA PROFESIONAL Y EMPRENDIMIENTO "
+            },
+            { "ciclo": 10, "nombre": "PROYECTO DE TESIS II " }
+          ]
+        }
+      }
+    },
+    "Ingeniería de Software": {
+      "planes": {
+        "2015": {
+          "cursos": []
+        },
+        "2018": {
+          "cursos": [
+            { "ciclo": 1, "nombre": "PROCESO CULTURAL ANDINO " },
+            {
+              "ciclo": 1,
+              "nombre": "PROGRAMACI\\u00d3N Y COMPUTACI\\u00d3N"
+            },
+            {
+              "ciclo": 1,
+              "nombre": "MEDIO AMBIENTE Y DESARROLLO SOSTENIBLE "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "\\u00c1LGEBRA Y GEOMETR\\u00cdA ANAL\\u00cdTICA "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "BIOLOG\\u00cdA PARA CIENCIAS E INGENIER\\u00cdA "
+            },
+            { "ciclo": 1, "nombre": "C\\u00c1LCULO I " },
+            { "ciclo": 1, "nombre": "DESARROLLO PERSONAL Y LIDERAZGO " },
+            {
+              "ciclo": 1,
+              "nombre": "M\\u00c9TODOS DE ESTUDIO UNIVERSITARIO "
+            },
+            { "ciclo": 1, "nombre": "DIBUJO T\\u00c9CNICO " },
+            {
+              "ciclo": 1,
+              "nombre": "INGL\\u00c9S PARA ESCRITURA ACAD\\u00c9MICA "
+            },
+            { "ciclo": 1, "nombre": "MATLAB " },
+            {
+              "ciclo": 1,
+              "nombre": "C\\u00c1LCULOS B\\u00c1SICOS EN QU\\u00cdMICA "
+            },
+            { "ciclo": 1, "nombre": "SEGURIDAD E HIGIENE EN LABORATORIO " },
+            {
+              "ciclo": 1,
+              "nombre": "FUNDAMENTOS DE RIESGOS DE DESASTRES Y CAMBIO CLIM\\u00c1TICO "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "GEOGRAFIA ECON\\u00d3MICA DEL PER\\u00da "
+            },
+            {
+              "ciclo": 1,
+              "nombre": "CIUDADAN\\u00cdA Y DERECHOS FUNDAMENTALES "
+            },
+            { "ciclo": 1, "nombre": "TALLER DE ELECTRICIDAD Y ELECTRONICA" },
+            { "ciclo": 1, "nombre": "ECONOMIA GENERAL " },
+            { "ciclo": 1, "nombre": "EMPRENDIMIENTO E INNOVACI\\u00d3N " },
+            { "ciclo": 1, "nombre": "TALLER DE M\\u00daSICA " },
+            { "ciclo": 1, "nombre": "TALLER DE DANZA " },
+            { "ciclo": 1, "nombre": "APRECIACI\\u00d3N DE CINE " },
+            { "ciclo": 1, "nombre": "QUECHUA " },
+            {
+              "ciclo": 1,
+              "nombre": "REDACCI\\u00d3N Y T\\u00c9CNICAS DE COMUNICACI\\u00d3N EFECTIVA I "
+            },
+            { "ciclo": 2, "nombre": "INVESTIGACI\\u00d3N FORMATIVA " },
+            {
+              "ciclo": 2,
+              "nombre": "REDACCI\\u00d3N Y T\\u00c9CNICAS DE COMUNICACI\\u00d3N EFECTIVA II "
+            },
+            { "ciclo": 2, "nombre": "QU\\u00cdMICA GENERAL " },
+            { "ciclo": 2, "nombre": "F\\u00cdSICA I " },
+            { "ciclo": 2, "nombre": "C\\u00c1LCULO II" },
+            { "ciclo": 2, "nombre": "REALIDAD NACIONAL Y MUNDIAL " },
+            {
+              "ciclo": 2,
+              "nombre": "INTRODUCCI\\u00d3N A LAS CIENCIAS E INGENIER\\u00cdA "
+            },
+            { "ciclo": 3, "nombre": "ALGOR\\u00cdTMICA I" },
+            { "ciclo": 3, "nombre": "ESTAD\\u00cdSTICA" },
+            { "ciclo": 3, "nombre": "FISICA EL\\u00c9CTRONICA" },
+            { "ciclo": 3, "nombre": "INGENIER\\u00cdA ECON\\u00d3MICA" },
+            {
+              "ciclo": 3,
+              "nombre": "INTRODUCCI\\u00d3N AL DESARROLLO DE SOFTWARE"
+            },
+            { "ciclo": 3, "nombre": "MATEM\\u00c1TICA B\\u00c1SICA" },
+            {
+              "ciclo": 3,
+              "nombre": "ORGANIZACI\\u00d3N Y ADMINISTRACI\\u00d3N"
+            },
+            { "ciclo": 4, "nombre": "ALGOR\\u00cdTMICA II" },
+            { "ciclo": 4, "nombre": "CONTABILIDAD PARA LA GESTI\\u00d3N" },
+            {
+              "ciclo": 4,
+              "nombre": "INNOVACI\\u00d3N, TECNOLOG\\u00cdA Y EMPRENDIMIENTO"
+            },
+            { "ciclo": 4, "nombre": "MATEM\\u00c1TICA DISCRETA " },
+            { "ciclo": 4, "nombre": "PROBABILIDADES" },
+            { "ciclo": 4, "nombre": "PROCESOS DE SOFTWARE" },
+            { "ciclo": 4, "nombre": "SISTEMAS DIGITALES" },
+            { "ciclo": 5, "nombre": "CALIDAD DE SOFTWARE" },
+            { "ciclo": 5, "nombre": "ARQUITECTURA DE COMPUTADORAS" },
+            {
+              "ciclo": 5,
+              "nombre": "AN\\u00c1LISIS Y DISE\\u00d1O DE ALGORITMOS"
+            },
+            { "ciclo": 5, "nombre": "COMPUTACI\\u00d3N VISUAL" },
+            { "ciclo": 5, "nombre": "INGENIER\\u00cdA DE REQUISITOS " },
+            { "ciclo": 5, "nombre": "ECONOM\\u00cdA PARA LA GESTI\\u00d3N" },
+            { "ciclo": 5, "nombre": "ESTRUCTURA DE DATOS" },
+            {
+              "ciclo": 6,
+              "nombre": "ASEGURAMIENTO DE LA CALIDAD DEL SOFTWARE"
+            },
+            { "ciclo": 6, "nombre": "BASE DE DATOS I" },
+            { "ciclo": 6, "nombre": "DISE\\u00d1O DE SOFTWARE" },
+            { "ciclo": 6, "nombre": "INTERACCI\\u00d3N HOMBRE COMPUTADOR" },
+            {
+              "ciclo": 6,
+              "nombre": "GESTI\\u00d3N DE LA CONFIGURACI\\u00d3N DEL SOFTWARE"
+            },
+            {
+              "ciclo": 6,
+              "nombre": "FORMACI\\u00d3N DE EMPRESAS DE SOFTWARE"
+            },
+            { "ciclo": 6, "nombre": "SISTEMAS OPERATIVOS " },
+            { "ciclo": 7, "nombre": "EXPERIENCIA DE USUARIO Y USABILIDAD" },
+            { "ciclo": 7, "nombre": "BASE DE DATOS II" },
+            { "ciclo": 7, "nombre": "ARQUITECTURA DE SOFTWARE" },
+            { "ciclo": 7, "nombre": "GESTI\\u00d3N DE PROYECTO DE SOFTWARE" },
+            { "ciclo": 7, "nombre": "REDES Y TRANSMISI\\u00d3N DE DATOS" },
+            { "ciclo": 7, "nombre": "M\\u00c9TODOS FORMALES PARA PRUEBAS" },
+            { "ciclo": 7, "nombre": "INTELIGENCIA ARTIFICIAL" },
+            { "ciclo": 8, "nombre": "INTELIGENCIA DE NEGOCIOS" },
+            {
+              "ciclo": 8,
+              "nombre": "AUTOMATIZACI\\u00d3N Y CONTROL DE SOFTWARE"
+            },
+            {
+              "ciclo": 8,
+              "nombre": "METODOLOG\\u00cdA DE LA INVESTIGACI\\u00d3N"
+            },
+            { "ciclo": 8, "nombre": "MINER\\u00cdA DE DATOS" },
+            {
+              "ciclo": 8,
+              "nombre": "PROGRAMACI\\u00d3N CONCURRENTE Y PARALELA"
+            },
+            { "ciclo": 8, "nombre": "SEGURIDAD DEL SOFTWARE" },
+            {
+              "ciclo": 8,
+              "nombre": "TALLER DE CONSTRUCCI\\u00d3N DE SOFTWARE WEB"
+            },
+            {
+              "ciclo": 8,
+              "nombre": "VERIFICACI\\u00d3N Y VALIDACI\\u00d3N DE SOFTWARE"
+            },
+            { "ciclo": 9, "nombre": "GARANT\\u00cdA DE SOFTWARE" },
+            { "ciclo": 9, "nombre": "DESARROLLO DE TESIS I" },
+            {
+              "ciclo": 9,
+              "nombre": "GERENCIA DE TECNOLOG\\u00cdA DE LA INFORMACI\\u00d3N"
+            },
+            { "ciclo": 9, "nombre": "SOFTWARE INTELIGENTE" },
+            {
+              "ciclo": 9,
+              "nombre": "TALLER DE CONSTRUCCI\\u00d3N DE SOFTWARE M\\u00d3VIL"
+            },
+            { "ciclo": 9, "nombre": "INTERNET DE LAS COSAS" },
+            { "ciclo": 9, "nombre": "GESTI\\u00d3N DE RIESGO DEL SOFTWARE" },
+            {
+              "ciclo": 9,
+              "nombre": "GESTI\\u00d3N DE MANTENIMIENTO DEL SOFTWARE"
+            },
+            { "ciclo": 10, "nombre": "PR\\u00c1CTICA PRE PROFESIONAL" },
+            { "ciclo": 10, "nombre": "TALLER DE APLICACIONES SOCIALES" },
+            {
+              "ciclo": 10,
+              "nombre": "TENDENCIAS DE ARQUITECTURA DE SOFTWARE"
+            },
+            { "ciclo": 10, "nombre": "DESARROLLO DE TESIS II" },
+            { "ciclo": 10, "nombre": "ANAL\\u00cdTICA DE DATOS" },
+            {
+              "ciclo": 10,
+              "nombre": "TENDENCIAS EN INGENIER\\u00cdA DE SOFTWARE Y GESTI\\u00d3N"
+            }
+          ]
+        },
+        "2023": {
+          "cursos": []
+        }
+      }
+    },
+    "Ciencias de la Computación": {
+      "planes": {
+        "2023": {
+          "cursos": []
+        }
+      }
+    }
+  }
+}

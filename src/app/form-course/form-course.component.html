@@ -1,0 +1,105 @@
+<mat-toolbar color="primary">
+  <h1><span>Curso 📚</span></h1>
+</mat-toolbar>
+<mat-stepper orientation="horizontal" linear>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Selecciona tu carrera</ng-template>
+      <mat-button-toggle-group
+        formControlName="carrera"
+        (change)="watchPlanes()"
+      >
+        <mat-button-toggle
+          *ngFor="let carrera of carrerasArray"
+          [value]="carrera"
+          >{{ carrera }}</mat-button-toggle
+        >
+      </mat-button-toggle-group>
+      <div>
+        <button
+          mat-flat-button
+          matStepperNext
+          color="warn"
+          type="button"
+          [disabled]="firstFormGroup.invalid"
+        >
+          Siguiente
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Selecciona tu plan y ciclo</ng-template>
+      <div>
+        <label>Plan de estudios</label>
+        <mat-radio-group
+          aria-label="Elige el plan de estudios 🧠
+      "
+          formControlName="plan"
+        >
+          <mat-radio-button
+            *ngFor="let plan of planesArray"
+            [value]="plan"
+            color="warn"
+            >Plan {{ plan }}</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
+      <mat-form-field>
+        <mat-label>Ciclo</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="ciclo"
+          (change)="watchCursos()"
+        />
+      </mat-form-field>
+      <div>
+        <button mat-flat-button matStepperPrevious color="warn" type="button">
+          Anterior
+        </button>
+        <button
+          mat-flat-button
+          matStepperNext
+          color="warn"
+          type="button"
+          [disabled]="firstFormGroup.invalid"
+        >
+          Siguiente
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Selecciona tu curso</ng-template>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let curso of cursosArray">
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ curso }} </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-chip-listbox aria-label="Selecciona tu sección 📚">
+            <mat-chip-option *ngFor="let seccion of secciones">
+              <span>Sección {{ seccion.numero }}</span>
+            </mat-chip-option>
+          </mat-chip-listbox>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div>
+        <button mat-flat-button matStepperPrevious color="warn" type="button">
+          Anterior
+        </button>
+        <button
+          mat-flat-button
+          matStepperNext
+          color="warn"
+          type="button"
+          [disabled]="firstFormGroup.invalid"
+        >
+          Siguiente
+        </button>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

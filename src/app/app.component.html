@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+<div class="body-container">
+  <div *ngIf="loading" class="loading-logo">
+    <img src="assets/images/logo_blanco.png" width="300px" alt="logo" />
+  </div>
+  <div *ngIf="!loading">
+    <router-outlet />
+  </div>
+</div>
