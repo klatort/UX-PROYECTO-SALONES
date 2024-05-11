@@ -34,6 +34,7 @@
       <div>
         <label>Plan de estudios</label>
         <mat-radio-group
+          (change)="watchCursos()"
           aria-label="Elige el plan de estudios 🧠
       "
           formControlName="plan"
@@ -48,12 +49,11 @@
       </div>
       <mat-form-field>
         <mat-label>Ciclo</mat-label>
-        <input
-          matInput
-          type="number"
-          formControlName="ciclo"
-          (change)="watchCursos()"
-        />
+        <mat-select formControlName="ciclo" (selectionChange)="watchCursos()">
+          <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo">
+            {{ ciclo }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <div>
         <button mat-flat-button matStepperPrevious color="warn" type="button">
@@ -64,7 +64,7 @@
           matStepperNext
           color="warn"
           type="button"
-          [disabled]="firstFormGroup.invalid"
+          [disabled]="secondFormGroup.invalid"
         >
           Siguiente
         </button>
@@ -79,8 +79,18 @@
           <mat-expansion-panel-header>
             <mat-panel-title> {{ curso }} </mat-panel-title>
           </mat-expansion-panel-header>
-          <mat-chip-listbox aria-label="Selecciona tu sección 📚">
-            <mat-chip-option *ngFor="let seccion of secciones">
+          <mat-chip-listbox
+            formControlName="curso"
+            aria-label="Selecciona tu sección 📚"
+          >
+            <mat-chip-option
+              *ngFor="let seccion of secciones"
+              [value]="{
+                curso: curso,
+                seccion: seccion.numero,
+                profesor: seccion.profesor
+              }"
+            >
               <span>Sección {{ seccion.numero }}</span>
             </mat-chip-option>
           </mat-chip-listbox>
@@ -92,12 +102,11 @@
         </button>
         <button
           mat-flat-button
-          matStepperNext
           color="warn"
-          type="button"
-          [disabled]="firstFormGroup.invalid"
+          (click)="addCurso()"
+          [disabled]="thirdFormGroup.invalid"
         >
-          Siguiente
+          Agregar
         </button>
       </div>
     </form>

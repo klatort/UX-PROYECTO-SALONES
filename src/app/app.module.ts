@@ -29,7 +29,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormCourseComponent } from './form-course/form-course.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
 
@@ -67,6 +68,7 @@ import {MatChipsModule} from '@angular/material/chips';
     ReactiveFormsModule,
     MatButtonToggleModule,
     MatChipsModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

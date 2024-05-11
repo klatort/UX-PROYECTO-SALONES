@@ -1,34 +1,44 @@
 <div style="height: 100vh; width: 100vw; background-color: white">
   <mat-toolbar
-    style="background-color: transparent; justify-content: space-between"
-    color="secondary"
+    style="justify-content: space-between"
+    color="primary"
   >
     <h1><span>Chapa tu aula! 📅</span></h1>
     <div>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-      >
-        <mat-icon>menu</mat-icon>
+      <button mat-raised-button class="op-button" aria-label="subir" color="warn">
+        <mat-icon>upload_2</mat-icon>
+        Exportar
       </button>
-      <span class="example-spacer"></span>
-      <button
-        mat-icon-button
-        class="example-icon favorite-icon"
-        aria-label="Example icon-button with heart icon"
-      >
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with share icon"
-      >
-        <mat-icon>share</mat-icon>
+      <button mat-raised-button class="op-button" aria-label="descargar" color="warn">
+        <mat-icon>download_2</mat-icon>
+        Importar
       </button>
     </div>
   </mat-toolbar>
+  <div>
+    <cdk-virtual-scroll-viewport itemSize="7" style="height: calc(100vh - 160px)">
+      <div *cdkVirtualFor="let curso of cursos">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title
+              >{{ curso.curso }} | Sección {{ curso.seccion }}</mat-card-title
+            >
+            <mat-card-subtitle>{{ curso.profesor }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              ciclo {{ curso.ciclo }} | {{ curso.carrera }} | plan
+              {{ curso.plan }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
   <button (click)="openCursos()" mat-fab class="add-button" color="warn">
     <mat-icon>add</mat-icon>
   </button>
