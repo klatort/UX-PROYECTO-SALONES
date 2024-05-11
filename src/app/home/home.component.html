@@ -1,45 +1,96 @@
 <div style="height: 100vh; width: 100vw; background-color: white">
-  <mat-toolbar
-    style="justify-content: space-between"
-    color="primary"
-  >
+  <mat-toolbar style="justify-content: space-between" color="primary">
     <h1><span>Chapa tu aula! 📅</span></h1>
     <div>
-      <button mat-raised-button class="op-button" aria-label="subir" color="warn">
+      <button
+        (click)="exportCursos()"
+        mat-raised-button
+        class="op-button"
+        aria-label="subir"
+        color="warn"
+      >
         <mat-icon>upload_2</mat-icon>
         Exportar
       </button>
-      <button mat-raised-button class="op-button" aria-label="descargar" color="warn">
+      <button
+        (click)="importCursos()"
+        mat-raised-button
+        class="op-button"
+        aria-label="descargar"
+        color="warn"
+      >
         <mat-icon>download_2</mat-icon>
         Importar
       </button>
     </div>
   </mat-toolbar>
   <div>
-    <cdk-virtual-scroll-viewport itemSize="7" style="height: calc(100vh - 160px)">
-      <div *cdkVirtualFor="let curso of cursos">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title
-              >{{ curso.curso }} | Sección {{ curso.seccion }}</mat-card-title
-            >
-            <mat-card-subtitle>{{ curso.profesor }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              ciclo {{ curso.ciclo }} | {{ curso.carrera }} | plan
-              {{ curso.plan }}
-            </p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-          </mat-card-actions>
-        </mat-card>
+    <div *ngIf="cursos == null" class="empty-courses">
+      <p style="color: #a8a29e; font-size: 2rem">
+        No hay cursos registrados actualmente, has click en el botón de abajo
+        para agregar tus cursos! 📖
+      </p>
+    </div>
+    <cdk-virtual-scroll-viewport
+      *ngIf="cursos != null"
+      itemSize="7"
+      style="height: calc(100vh - 160px)"
+    >
+      <div
+        style="margin: 2rem 4rem"
+        *cdkVirtualFor="let carrera of cursos | keyvalue"
+      >
+        <h2>{{ carrera.key }}</h2>
+        <div style="margin: 1rem" *ngFor="let plan of carrera.value | keyvalue">
+          <h3>Plan {{ plan.key }}</h3>
+          <mat-card
+            style="margin: 1rem"
+            *ngFor="let ciclo of plan.value | keyvalue"
+          >
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>
+                  <h4>Ciclo °{{ ciclo.key }}</h4>
+                </mat-card-title>
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+              <div *ngFor="let curso of ciclo.value; let last = last">
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                  "
+                >
+                  <div>
+                    <p style="font-weight: bold">{{ curso.curso }}</p>
+                    <p>{{ curso.profesor }}</p>
+                    <p matListItemLine>Sección {{ curso.seccion }}</p>
+                    <h5>Salón: NP-101</h5>
+                  </div>
+                  <div>
+                    <button
+                      (click)="deleteCurso(curso)"
+                      mat-mini-fab
+                      style="margin: 10px"
+                      color="warn"
+                    >
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+                <mat-divider *ngIf="!last" style="margin: 1rem 0"></mat-divider>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
     </cdk-virtual-scroll-viewport>
   </div>
-  <button (click)="openCursos()" mat-fab class="add-button" color="warn">
-    <mat-icon>add</mat-icon>
-  </button>
+  <div class="toolbar">
+    <button (click)="openCursos()" class="add-button" mat-fab color="warn">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </div>

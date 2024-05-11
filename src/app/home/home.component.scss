@@ -1,7 +1,22 @@
+.toolbar {
+  display: flex;
+  justify-content: right;
+  margin: 20px;
+}
+
+.empty-courses {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 0 30vw;
+  height: calc(100vh - 160px);
+}
+
 .add-button {
-  position: fixed;
-  bottom: 20px;
+  position: absolute;
   right: 20px;
+  bottom: 20px;
 }
 
 .op-button {

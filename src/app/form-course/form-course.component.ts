@@ -81,7 +81,7 @@ export class FormCourseComponent implements OnInit {
       'seccion': this.thirdFormGroup.get('curso').value.seccion,
       'profesor': this.thirdFormGroup.get('curso').value.profesor,
     };
-    const cookieName: string = this.firstFormGroup.get('carrera').value + this.secondFormGroup.get('plan').value + this.secondFormGroup.get('ciclo').value + this.thirdFormGroup.get('curso').value.curso.curso + this.thirdFormGroup.get('curso').value.seccion + this.thirdFormGroup.get('curso').value.profesor;
+    const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
     this.cookieService.set(cookieName, JSON.stringify(curso));
     this.dialogRef.close();
   }
