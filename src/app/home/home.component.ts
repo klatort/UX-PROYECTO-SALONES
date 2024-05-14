@@ -59,11 +59,12 @@ export class HomeComponent implements OnInit {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json';
-    input.onchange = (eve0nt) => {
+    input.onchange = (event) => {
       const file = (event.target as HTMLInputElement).files[0];
       const reader = new FileReader();
       reader.onload = () => {
       const cookieData = JSON.parse(reader.result as string);
+      console.log(cookieData);
       Object.entries(cookieData).forEach(([key, value]) => {
         console.log(key, JSON.stringify(value));
         this.cookieService.set(key, JSON.stringify(value));
