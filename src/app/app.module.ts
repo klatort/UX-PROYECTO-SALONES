@@ -22,7 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -31,6 +31,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 @NgModule({
 
@@ -68,7 +70,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     ReactiveFormsModule,
     MatButtonToggleModule,
     MatChipsModule,
-    ScrollingModule
+    ScrollingModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

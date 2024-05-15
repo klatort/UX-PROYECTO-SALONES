@@ -8,10 +8,12 @@
       <mat-button-toggle-group
         formControlName="carrera"
         (change)="watchPlanes()"
+        style="display: flex; margin: 1rem 0"
       >
         <mat-button-toggle
           *ngFor="let carrera of carrerasArray"
           [value]="carrera"
+          style="width: 100%"
           >{{ carrera }}</mat-button-toggle
         >
       </mat-button-toggle-group>
@@ -33,9 +35,11 @@
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Selecciona tu plan y ciclo</ng-template>
       <div>
-        <label>Plan de estudios</label>
+        <label style="margin: 1rem; font-weight: 400">Plan de estudios</label>
+        <mat-divider style="margin: 0.5rem 0"></mat-divider>
         <mat-radio-group
           (change)="watchCursos()"
+          style="margin: 1rem 0; display: flex; flex-wrap: wrap"
           aria-label="Elige el plan de estudios 🧠
       "
           formControlName="plan"
@@ -48,6 +52,8 @@
           >
         </mat-radio-group>
       </div>
+      <label style="margin: 1rem; font-weight: 400">Ciclo del curso</label>
+      <mat-divider style="margin: 0.5rem 0"></mat-divider>
       <mat-form-field>
         <mat-label>Ciclo</mat-label>
         <mat-select formControlName="ciclo" (selectionChange)="watchCursos()">
@@ -84,28 +90,47 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Selecciona tu curso</ng-template>
-      <mat-accordion>
-        <mat-expansion-panel *ngFor="let curso of cursosArray">
-          <mat-expansion-panel-header>
-            <mat-panel-title>{{ curso }}</mat-panel-title>
-          </mat-expansion-panel-header>
-          <mat-chip-listbox
-            formControlName="curso"
-            aria-label="Selecciona tu sección 📚"
-          >
-            <mat-chip-option
-              *ngFor="let seccion of secciones"
-              [value]="{
-                curso: curso,
-                seccion: seccion.numero,
-                profesor: seccion.profesor
-              }"
+      <cdk-virtual-scroll-viewport
+        *ngIf="cursosArray?.length > 0"
+        itemSize="7"
+        style="height: 360px; margin: 1rem 0"
+      >
+        <mat-accordion style="margin: 1rem 2rem">
+          <mat-expansion-panel *cdkVirtualFor="let curso of cursosArray">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h2 style="margin-right: 2rem">•</h2>
+                {{ curso }}</mat-panel-title
+              >
+            </mat-expansion-panel-header>
+            <mat-chip-listbox
+              formControlName="curso"
+              aria-label="Selecciona tu sección 📚"
             >
-              <span>Sección {{ seccion.numero }}</span>
-            </mat-chip-option>
-          </mat-chip-listbox>
-        </mat-expansion-panel>
-      </mat-accordion>
+              <mat-chip-option
+                *ngFor="let seccion of secciones"
+                [value]="{
+                  curso: curso,
+                  seccion: seccion.numero,
+                  profesor: seccion.profesor
+                }"
+                matTooltip="{{ seccion.profesor }}"
+              >
+                <span>Sección {{ seccion.numero }}</span>
+              </mat-chip-option>
+            </mat-chip-listbox>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </cdk-virtual-scroll-viewport>
+
+      <div
+        *ngIf="cursosArray?.length <= 0"
+        style="text-align: center; margin: 1rem"
+      >
+        <p style="color: #a8a29e; font-size: 2rem">
+          No hay cursos registrados<br />Prueba con otras opciones! 📖
+        </p>
+      </div>
       <div>
         <button
           mat-flat-button

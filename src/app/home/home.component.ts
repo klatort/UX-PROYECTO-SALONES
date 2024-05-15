@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
     this.cookieService.delete(cookieName);
     this.updateCursos();
   }
+
   importCursos() {
     const input = document.createElement('input');
     input.type = 'file';
@@ -63,21 +64,29 @@ export class HomeComponent implements OnInit {
       const file = (event.target as HTMLInputElement).files[0];
       const reader = new FileReader();
       reader.onload = () => {
-      const cookieData = JSON.parse(reader.result as string);
-      console.log(cookieData);
-      Object.entries(cookieData).forEach(([key, value]) => {
-        console.log(key, JSON.stringify(value));
-        this.cookieService.set(key, JSON.stringify(value));
-      });
-      this.updateCursos();
+        const cookieData = JSON.parse(reader.result as string);
+        console.log(cookieData);
+        Object.entries(cookieData).forEach(([key, value]) => {
+          console.log(key, JSON.stringify(value));
+          this.cookieService.set(key, JSON.stringify(value));
+        });
+        this.updateCursos();
       };
       reader.readAsText(file);
     };
     input.click();
-    this.updateCursos();
   }
+
   exportCursos() {
-    const cookieData = JSON.stringify(this.cookieService.getAll());
+    const cookies = this.cookieService.getAll();
+    const parsedCookies = Object.keys(cookies).reduce((acc, key) => {
+      acc[key] = JSON.parse(cookies[key]);
+      return acc;
+    }, {});
+
+    const cookieData = JSON.stringify(parsedCookies);
+    console.log(parsedCookies);
+
     const blob = new Blob([cookieData], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');

@@ -66,7 +66,10 @@ export class FormCourseComponent implements OnInit {
     let carrera: keyof typeof this.temp.carreras = this.firstFormGroup.get('carrera').value;
     let plan: keyof typeof this.temp.carreras[typeof carrera]['planes'] = this.secondFormGroup.get('plan').value;
     let ciclo = this.secondFormGroup.get('ciclo').value;
-    console.log(ciclo);
+    if (ciclo == 'electivo') {
+      this.cursosArray = this.temp.carreras[carrera].planes[plan].cursos.filter((curso: any) => curso.ciclo == null).map((curso: any) => curso.nombre as string);
+      return;
+    }
     let cursos = this.temp.carreras[carrera].planes[plan].cursos;
     this.cursosArray = cursos.filter((curso: any) => curso.ciclo == ciclo).map((curso: any) => curso.nombre as string);
     console.log(this.cursosArray);

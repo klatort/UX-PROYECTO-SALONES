@@ -7,7 +7,11 @@
 .loading-logo{
   position: absolute;
   top: calc(50% - 150px);
-  animation: upscale 4s infinite;
+  left: calc(50% - 150px);
+}
+
+.logo {
+  animation: upscale 2.5s infinite;
 }
 
 @keyframes upscale {

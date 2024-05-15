@@ -1,6 +1,7 @@
 <div class="body-container">
   <div *ngIf="loading" class="loading-logo">
-    <img src="assets/images/logo_blanco.png" width="300px" alt="logo" />
+    <img class="logo" src="assets/images/logo_blanco.png" width="300px" alt="logo" />
+    <mat-progress-bar style="margin: 3rem 0 " color="accent" mode="indeterminate"></mat-progress-bar>
   </div>
   <div *ngIf="!loading">
     <router-outlet />

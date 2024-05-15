@@ -1,6 +1,9 @@
 <div style="height: 100vh; width: 100vw; background-color: white">
   <mat-toolbar style="justify-content: space-between" color="primary">
-    <h1><span>Chapa tu aula! 📅</span></h1>
+    <div style="display: flex;">
+      <img style="padding: 1rem 1rem 0 0;" src="assets/images/logo_blanco.png" height="52" />
+      <h1><span>Chapa tu aula! 📅</span></h1>
+    </div>
     <div>
       <button
         (click)="exportCursos()"
@@ -48,11 +51,11 @@
             *ngFor="let ciclo of plan.value | keyvalue"
           >
             <mat-card-header>
-              <mat-card-title-group>
-                <mat-card-title>
-                  <h4>Ciclo °{{ ciclo.key }}</h4>
-                </mat-card-title>
-              </mat-card-title-group>
+              <mat-card-title>
+                <h1 style="margin: -6px 0; margin-left: -3px">
+                  Ciclo °{{ ciclo.key }}
+                </h1>
+              </mat-card-title>
             </mat-card-header>
             <mat-card-content>
               <div *ngFor="let curso of ciclo.value; let last = last">
