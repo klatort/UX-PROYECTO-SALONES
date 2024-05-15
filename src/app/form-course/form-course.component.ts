@@ -20,7 +20,7 @@ export class FormCourseComponent implements OnInit {
   thirdFormGroup: any = null;
 
   secciones = [{ 'numero': '1', 'profesor': 'Ivan Petrlik' }, { 'numero': '2', 'profesor': 'Ronald Peña' }, { 'numero': '3', 'profesor': 'Edward Santa Cruz' }];
-  ciclos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'electivo'];
+  ciclos = ['Electivo', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   carrerasArray: string[] | undefined;
   planesArray: string[] | undefined;
@@ -66,7 +66,7 @@ export class FormCourseComponent implements OnInit {
     let carrera: keyof typeof this.temp.carreras = this.firstFormGroup.get('carrera').value;
     let plan: keyof typeof this.temp.carreras[typeof carrera]['planes'] = this.secondFormGroup.get('plan').value;
     let ciclo = this.secondFormGroup.get('ciclo').value;
-    if (ciclo == 'electivo') {
+    if (ciclo == 'Electivo') {
       this.cursosArray = this.temp.carreras[carrera].planes[plan].cursos.filter((curso: any) => curso.ciclo == null).map((curso: any) => curso.nombre as string);
       return;
     }

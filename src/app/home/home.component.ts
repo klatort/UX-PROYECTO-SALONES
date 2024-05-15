@@ -2,15 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { FormCourseComponent } from '../form-course/form-course.component';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('slideRight', [
+      state('initial', style({
+        transform: 'translateX(0)'
+      })),
+      state('final', style({
+        transform: 'translateX(200%)'
+      })),
+      transition('initial <=> final', animate('500ms'))
+    ]),
+  ]
 })
 
 export class HomeComponent implements OnInit {
-  cursos: Array<any> = [];
+  cursos: Array<any> = [];  
+  animationStates = {};
+
   constructor(private cookieService: CookieService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -53,7 +67,11 @@ export class HomeComponent implements OnInit {
     console.log(this.cookieService.getAll());
     const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
     this.cookieService.delete(cookieName);
-    this.updateCursos();
+    this.animationStates[curso.curso] = 'final';
+    setTimeout(()=>{
+      this.updateCursos();
+      this.animationStates[curso.curso] = 'initial';
+    }, 500);
   }
 
   importCursos() {

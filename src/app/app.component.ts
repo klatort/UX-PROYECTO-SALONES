@@ -7,7 +7,6 @@ import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'horario';
   loading = false;
 
   constructor(private router: Router) {

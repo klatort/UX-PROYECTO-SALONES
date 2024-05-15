@@ -33,6 +33,7 @@
         No hay cursos registrados actualmente, has click en el botón de abajo
         para agregar tus cursos! 📖
       </p>
+      <mat-icon class="arrow">south_east</mat-icon>
     </div>
     <cdk-virtual-scroll-viewport
       *ngIf="cursos != null"
@@ -52,13 +53,16 @@
           >
             <mat-card-header>
               <mat-card-title>
-                <h1 style="margin: -6px 0; margin-left: -3px">
+                <h1 *ngIf="ciclo.key != 'Electivo'" style="margin: -6px 0; margin-left: -3px">
                   Ciclo °{{ ciclo.key }}
+                </h1>
+                <h1 *ngIf="ciclo.key == 'Electivo'" style="margin: -6px 0; margin-left: -3px">
+                  {{ ciclo.key }}s
                 </h1>
               </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <div *ngFor="let curso of ciclo.value; let last = last">
+              <div *ngFor="let curso of ciclo.value; let last = last" [@slideRight]="animationStates[curso.curso] || 'initial'">
                 <div
                   style="
                     display: flex;
