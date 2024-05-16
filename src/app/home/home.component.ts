@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { FormCourseComponent } from '../form-course/form-course.component';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, style, animate, transition, sequence } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
@@ -11,18 +11,20 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
     trigger('slideRight', [
       state('initial', style({
-        transform: 'translateX(0)'
+        transform: 'translateX(0)',
+        opacity: 1,
       })),
       state('final', style({
-        transform: 'translateX(200%)'
+        transform: 'translateX(100vw) scale(0)',
+        opacity: 0,
       })),
-      transition('initial <=> final', animate('500ms'))
+      transition('initial <=> final', animate('300ms'))
     ]),
   ]
 })
 
 export class HomeComponent implements OnInit {
-  cursos: Array<any> = [];  
+  cursos: Array<any> = [];
   animationStates = {};
 
   constructor(private cookieService: CookieService, public dialog: MatDialog) { }
@@ -33,14 +35,11 @@ export class HomeComponent implements OnInit {
 
   updateCursos() {
     const cookieValues = Object.values(this.cookieService.getAll());
-    console.log(cookieValues);
     if (cookieValues.length == 0) {
       this.cursos = null;
       return;
     }
-    this.cursos = cookieValues.map(value => JSON.parse(value));
-
-    this.cursos = this.cursos.reduce((acc, curso) => {
+    this.cursos = cookieValues.map(value => JSON.parse(value)).reduce((acc, curso) => {
       if (!acc[curso.carrera]) {
         acc[curso.carrera] = {};
       }
@@ -53,7 +52,6 @@ export class HomeComponent implements OnInit {
       acc[curso.carrera][curso.plan][curso.ciclo].push(curso);
       return acc;
     }, {});
-    console.log(this.cursos);
   }
 
   openCursos(): void {
@@ -64,14 +62,30 @@ export class HomeComponent implements OnInit {
   }
 
   deleteCurso(curso): void {
-    console.log(this.cookieService.getAll());
     const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
     this.cookieService.delete(cookieName);
-    this.animationStates[curso.curso] = 'final';
-    setTimeout(()=>{
+    this.animationStates[curso.carrera + curso.plan + curso.ciclo + curso.curso] = 'final';
+
+    const moreCursos = this.cursos[curso.carrera][curso.plan][curso.ciclo].length <= 1;
+    console.log(this.cursos[curso.carrera][curso.plan][curso.ciclo], moreCursos);
+    if (moreCursos) {
+      this.animationStates[curso.carrera + curso.plan + curso.ciclo] = 'final';
+      const morePlanes = Object.keys(this.cursos[curso.carrera][curso.plan]).length <= 1;
+      console.log(Object.keys(this.cursos[curso.carrera][curso.plan]), morePlanes);
+      if (morePlanes) {
+        this.animationStates[curso.carrera + curso.plan] = 'final';
+        const moreCarreras = Object.keys(this.cursos[curso.carrera]).length <= 1;
+        console.log(Object.keys(this.cursos[curso.carrera]), moreCarreras);
+        if (moreCarreras) {
+          this.animationStates[curso.carrera] = 'final';
+        }
+      }
+    }
+
+    setTimeout(() => {
       this.updateCursos();
-      this.animationStates[curso.curso] = 'initial';
-    }, 500);
+      this.animationStates = {};
+    }, 400);
   }
 
   importCursos() {
@@ -83,9 +97,7 @@ export class HomeComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = () => {
         const cookieData = JSON.parse(reader.result as string);
-        console.log(cookieData);
         Object.entries(cookieData).forEach(([key, value]) => {
-          console.log(key, JSON.stringify(value));
           this.cookieService.set(key, JSON.stringify(value));
         });
         this.updateCursos();
@@ -103,7 +115,6 @@ export class HomeComponent implements OnInit {
     }, {});
 
     const cookieData = JSON.stringify(parsedCookies);
-    console.log(parsedCookies);
 
     const blob = new Blob([cookieData], { type: 'application/json' });
     const url = URL.createObjectURL(blob);

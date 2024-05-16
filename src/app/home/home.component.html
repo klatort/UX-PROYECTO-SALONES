@@ -1,7 +1,11 @@
 <div style="height: 100vh; width: 100vw; background-color: white">
   <mat-toolbar style="justify-content: space-between" color="primary">
-    <div style="display: flex;">
-      <img style="padding: 1rem 1rem 0 0;" src="assets/images/logo_blanco.png" height="52" />
+    <div style="display: flex">
+      <img
+        style="padding: 1rem 1rem 0 0"
+        src="assets/images/logo_blanco.png"
+        height="52"
+      />
       <h1><span>Chapa tu aula! 📅</span></h1>
     </div>
     <div>
@@ -44,25 +48,42 @@
         style="margin: 2rem 4rem"
         *cdkVirtualFor="let carrera of cursos | keyvalue"
       >
-        <h2>{{ carrera.key }}</h2>
+        <h2 [@slideRight]="animationStates[carrera.key] || 'initial'">
+          {{ carrera.key }}
+        </h2>
         <div style="margin: 1rem" *ngFor="let plan of carrera.value | keyvalue">
-          <h3>Plan {{ plan.key }}</h3>
+          <h3
+            [@slideRight]="animationStates[carrera.key + plan.key] || 'initial'"
+          >
+            Plan {{ plan.key }}
+          </h3>
           <mat-card
             style="margin: 1rem"
             *ngFor="let ciclo of plan.value | keyvalue"
           >
             <mat-card-header>
-              <mat-card-title>
-                <h1 *ngIf="ciclo.key != 'Electivo'" style="margin: -6px 0; margin-left: -3px">
+              <mat-card-title
+                [@slideRight]="
+                  animationStates[carrera.key + plan.key + ciclo.key] ||
+                  'initial'
+                "
+              >
+                <h1
+                  *ngIf="ciclo.key != 'Electivo'"
+                  style="margin: -6px 0; margin-left: -3px"
+                >
                   Ciclo °{{ ciclo.key }}
                 </h1>
-                <h1 *ngIf="ciclo.key == 'Electivo'" style="margin: -6px 0; margin-left: -3px">
+                <h1
+                  *ngIf="ciclo.key == 'Electivo'"
+                  style="margin: -6px 0; margin-left: -3px"
+                >
                   {{ ciclo.key }}s
                 </h1>
               </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-              <div *ngFor="let curso of ciclo.value; let last = last" [@slideRight]="animationStates[curso.curso] || 'initial'">
+              <div *ngFor="let curso of ciclo.value; let last = last">
                 <div
                   style="
                     display: flex;
@@ -70,7 +91,13 @@
                     justify-content: space-between;
                   "
                 >
-                  <div>
+                  <div
+                    [@slideRight]="
+                      animationStates[
+                        carrera.key + plan.key + ciclo.key + curso.curso
+                      ] || 'initial'
+                    "
+                  >
                     <p style="font-weight: bold">{{ curso.curso }}</p>
                     <p>{{ curso.profesor }}</p>
                     <p matListItemLine>Sección {{ curso.seccion }}</p>
