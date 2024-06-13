@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { FormCourseComponent } from '../form-course/form-course.component';
-import { trigger, state, style, animate, transition, sequence } from '@angular/animations';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit {
       this.cursos = null;
       return;
     }
+    console.log(cookieValues);
     this.cursos = cookieValues.map(value => JSON.parse(value)).reduce((acc, curso) => {
       if (!acc[curso.carrera]) {
         acc[curso.carrera] = {};
@@ -56,6 +58,13 @@ export class HomeComponent implements OnInit {
 
   openCursos(): void {
     const dialogRef = this.dialog.open(FormCourseComponent);
+    dialogRef.afterClosed().subscribe(() => {
+      this.updateCursos();
+    });
+  }
+
+  openLogin(): void {
+    const dialogRef = this.dialog.open(LoginComponent);
     dialogRef.afterClosed().subscribe(() => {
       this.updateCursos();
     });

@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <h1><span>Autenticación SUM 📚</span></h1>
+</mat-toolbar>
+<div style="height: 20vh;">
+  <form
+    (ngSubmit)="login(user.value, password.value)"
+    method="post"
+    style="display: flex; flex-direction: column"
+  >
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        type="text"
+        id="user"
+        name="user"
+        placeholder="Ingresa tu nombre"
+        required
+        #user
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contraseña</mat-label>
+      <input
+        matInput
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Ingresa tu contraseña"
+        required
+        #password
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Ingresar</button>
+  </form>
+</div>

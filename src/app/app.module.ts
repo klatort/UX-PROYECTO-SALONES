@@ -31,7 +31,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -40,14 +42,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     AppComponent,
     LadingPageComponent,
     HomeComponent,
-    FormCourseComponent
+    FormCourseComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatFormFieldModule,
+    HttpClientModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,
