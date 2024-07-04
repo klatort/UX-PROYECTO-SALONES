@@ -1,36 +1,51 @@
 <mat-toolbar color="primary">
   <h1><span>Autenticación SUM 📚</span></h1>
 </mat-toolbar>
-<div style="height: 20vh;">
+<div>
   <form
     (ngSubmit)="login(user.value, password.value)"
     method="post"
-    style="display: flex; flex-direction: column"
+    style="display: flex; gap: 2rem; flex-direction: row; margin: 1.5rem 3.5rem; width: auto"
   >
-    <mat-form-field>
-      <mat-label>Nombre</mat-label>
-      <input
-        matInput
-        type="text"
-        id="user"
-        name="user"
-        placeholder="Ingresa tu nombre"
-        required
-        #user
+    <div style="background-color: #70191c; margin: auto 0; border-radius: 20px 0; padding: 1rem">
+      <img
+        src="assets/images/logo_sum.png"
+        height="100"
       />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Contraseña</mat-label>
-      <input
-        matInput
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Ingresa tu contraseña"
-        required
-        #password
-      />
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Ingresar</button>
+    </div>
+    <div style="display: flex; flex-direction: column; width: 15vw;">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          id="user"
+          name="user"
+          placeholder="Ingresa tu nombre"
+          required
+          #user
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Ingresa tu contraseña"
+          required
+          #password
+        />
+      </mat-form-field>
+      <button *ngIf="!loading" mat-raised-button color="primary" type="submit">
+        Ingresar
+      </button>
+      <mat-progress-bar
+        *ngIf="loading"
+        color="primary"
+        mode="indeterminate"
+      ></mat-progress-bar>
+    </div>
   </form>
 </div>

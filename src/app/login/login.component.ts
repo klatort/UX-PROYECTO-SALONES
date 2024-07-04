@@ -10,6 +10,8 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  loading = false;
+
   constructor(private http: HttpClient, private cookieService: CookieService, private dialogRef: MatDialogRef<LoginComponent>) { }
 
   async login(user, password) {
@@ -19,7 +21,8 @@ export class LoginComponent {
         password: password
       };
 
-      const resp: any = await lastValueFrom(this.http.post('http://localhost:3000/login', loginData));
+      this.loading = true;
+      const resp: any = await lastValueFrom(this.http.post('http://localhost:3000/test/cursos', loginData));
       console.log(resp.courses);
 
       resp.courses.forEach((curso: any) => {
@@ -27,10 +30,9 @@ export class LoginComponent {
         this.cookieService.set(cookieName, JSON.stringify(curso));
       })
       this.dialogRef.close();
-      alert('Login success');
     } catch (error) {
       console.error(error);
-      alert('Login failed');
     }
+    this.loading = false;
   }
 }
