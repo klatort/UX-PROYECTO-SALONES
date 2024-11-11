@@ -3,6 +3,7 @@ import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent {
       };
 
       this.loading = true;
-      const resp: any = await lastValueFrom(this.http.post('http://localhost:3000/test/cursos', loginData));
+      const resp: any = await lastValueFrom(this.http.post(`${environment.apiUrl}/test/cursos`, loginData));
+
       console.log(resp.courses);
 
       resp.courses.forEach((curso: any) => {
