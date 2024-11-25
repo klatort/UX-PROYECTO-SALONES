@@ -23,11 +23,25 @@ export class LoginComponent {
       };
 
       this.loading = true;
-      const resp: any = await lastValueFrom(this.http.post(`${environment.apiUrl}/test/cursos`, loginData));
+      const headers = {
+        'Content-Type': 'application/json',
+        'x-api-secret': environment.apiSecretKey,
+        'x-api-key-id': environment.apiAccessKey
+      };
+      const loginWindow = window.open('', '_blank', 'width=500,height=500');
 
-      console.log(resp.courses);
+      if (loginWindow) {
+        const response = await lastValueFrom(this.http.get(`${environment.apiUrl}/user/login`, { headers, responseType: 'text' }));
+        loginWindow.document.write(response);
+      }
 
-      resp.courses.forEach((curso: any) => {
+      //const resp: any = await lastValueFrom(this.http.post(`${environment.apiUrl}/user/login`, loginData, { headers, withCredentials: true }));
+
+      const { courses }: any = await lastValueFrom(this.http.get(`${environment.apiUrl}/user/cursos`, { headers, withCredentials: true }));
+
+      console.log(courses);
+
+      courses.forEach((curso: any) => {
         const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
         this.cookieService.set(cookieName, JSON.stringify(curso));
       })
