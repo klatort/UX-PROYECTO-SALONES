@@ -3,8 +3,8 @@
 </mat-toolbar>
 <div>
   <form
-    (ngSubmit)="login(user.value, password.value)"
-    method="post"
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
     style="display: flex; gap: 2rem; flex-direction: row; margin: 1.5rem 3.5rem; width: auto"
   >
     <div style="background-color: #70191c; margin: auto 0; border-radius: 20px 0; padding: 1rem">
@@ -19,24 +19,32 @@
         <input
           matInput
           type="text"
-          id="user"
-          name="user"
+          formControlName="username"
           placeholder="Ingresa tu nombre"
           required
-          #user
         />
+        <mat-error *ngIf="loginForm.get('username').hasError('required')">
+          Nombre es requerido
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('username').hasError('pattern')">
+          Nombre solo puede contener letras y números
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Contraseña</mat-label>
         <input
           matInput
           type="password"
-          id="password"
-          name="password"
+          formControlName="password"
           placeholder="Ingresa tu contraseña"
           required
-          #password
         />
+        <mat-error *ngIf="loginForm.get('password').hasError('required')">
+          Contraseña es requerida
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password').hasError('minlength')">
+          Contraseña debe tener al menos 6 caracteres
+        </mat-error>
       </mat-form-field>
       <button *ngIf="!loading" mat-raised-button color="primary" type="submit">
         Ingresar

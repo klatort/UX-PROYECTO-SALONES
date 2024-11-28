@@ -26,7 +26,7 @@ export class FormCourseComponent implements OnInit {
   planesArray: string[] | undefined;
   cursosArray: string[] | undefined;
 
-  constructor(private _formBuilder: FormBuilder, private cookieService: CookieService, public dialogRef: MatDialogRef<FormCourseComponent>
+  constructor(private _formBuilder: FormBuilder, public cookieService: CookieService, public dialogRef: MatDialogRef<FormCourseComponent>
   ) { }
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({

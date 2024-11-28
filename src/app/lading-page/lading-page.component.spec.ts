@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { LadingPageComponent } from './lading-page.component';
 
 describe('LadingPageComponent', () => {
@@ -8,9 +8,9 @@ describe('LadingPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LadingPageComponent ]
-    })
-    .compileComponents();
+      declarations: [LadingPageComponent],
+      imports: [HttpClientTestingModule]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LadingPageComponent);
     component = fixture.componentInstance;
