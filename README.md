@@ -1,4 +1,3 @@
-# PROYECTO DE UX CHÉVERE, QUIZÁS SÍ SIRVA SI BUSTAMANTE ME CONTESTA
 
 - [Documentacíon formal](https://drive.google.com/drive/folders/1GUvx1CfU1E3HEDu4RJSPB-YSqHCCpRvW?usp=sharing)
 - No hacer commits en el main, creen una rama si quieren modificar algo
@@ -10,4 +9,3 @@
 - OS: win32 x64
 - *La lista se irá actualizando dependiendo del desarrollo*
 
-# DONACIONES A MI YAPE +51 981109013
