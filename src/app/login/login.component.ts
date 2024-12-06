@@ -46,12 +46,10 @@ export class LoginComponent {
         'x-api-secret': environment.apiSecretKey,
         'x-api-key-id': environment.apiAccessKey
       };
-      const loginWindow = window.open('', '_blank', 'width=500,height=500');
 
-      if (loginWindow) {
-        const response = await lastValueFrom(this.http.get(`${environment.apiUrl}/user/login`, { headers, responseType: 'text' }));
-        loginWindow.document.write(response);
-      }
+      await lastValueFrom(this.http.post(`${environment.apiUrl}/user/login`, loginData, { headers, withCredentials: true }));
+      const cookies = this.cookieService.getAll();
+      console.log(cookies);
 
       const { courses }: any = await lastValueFrom(this.http.get(`${environment.apiUrl}/user/cursos`, { headers, withCredentials: true }));
 
