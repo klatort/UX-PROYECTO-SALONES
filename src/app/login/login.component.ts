@@ -48,6 +48,10 @@ export class LoginComponent {
       };
 
       await lastValueFrom(this.http.post(`${environment.apiUrl}/user/login`, loginData, { headers, withCredentials: true }));
+
+      // Wait for a short period to ensure cookies are set
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
       const cookies = this.cookieService.getAll();
       console.log(cookies);
 
@@ -59,10 +63,12 @@ export class LoginComponent {
         const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
         this.cookieService.set(cookieName, JSON.stringify(curso));
       });
+
       this.dialogRef.close();
     } catch (error) {
       console.error(error);
+    } finally {
+      this.loading = false;
     }
-    this.loading = false;
   }
 }
