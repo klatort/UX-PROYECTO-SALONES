@@ -49,17 +49,9 @@ export class LoginComponent {
 
       await lastValueFrom(this.http.post(`${environment.apiUrl}/user/login`, loginData, { headers, withCredentials: true }));
 
-      // Wait for a short period to ensure cookies are set
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      const cookies = this.cookieService.getAll();
-      console.log(cookies);
-
       const { courses }: any = await lastValueFrom(this.http.get(`${environment.apiUrl}/user/cursos`, { headers, withCredentials: true }));
-
-      console.log(courses);
-
-      courses.forEach((curso: any) => {
+      
+      courses.forEach((curso: any) => { 
         const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
         this.cookieService.set(cookieName, JSON.stringify(curso));
       });
