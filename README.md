@@ -1,45 +1,73 @@
-# Bienvenido al API SUM
-Este proyecto ha sido creado para manejar el SUM de manera programática, permitiendo una integración más sencilla con los servicios del SUM y fortaleciendo la seguridad de las interacciones. Actualmente, solo se están documentando y desarrollando los endpoints utilizados por la aplicación del portal UNMSM, añadiendo una capa adicional de seguridad a los servicios existentes.
+# UX-PROYECTO-SALONES
 
-## Descripción General
-El API SUM es un esfuerzo colaborativo para centralizar y estandarizar el manejo de datos entre aplicaciones dentro del ecosistema universitario de la UNMSM. Este sistema está diseñado con fines académicos y busca mejorar la infraestructura tecnológica interna de la universidad, facilitando la integración de servicios y el desarrollo de nuevas herramientas.
+## Descripción
 
-## Propósito del Proyecto
-### ¿Por qué este proyecto?
-La comunidad sanmarquina necesita software propio que permita centralizar los datos que se manejan entre aplicaciones. Este proyecto nació de la necesidad de facilitar la realización de proyectos académicos que requieren acceso a información gestionada por el SUM. Al consolidar estas herramientas en un solo punto de encuentro, se fomenta la creación de sistemas más eficientes y accesibles para los alumnos.
+Este proyecto es una aplicación web diseñada para la gestión de **salones**. Se centra en ofrecer una interfaz intuitiva y amigable para los usuarios, con funcionalidades que abarcan la administración de cursos, un sistema de inicio de sesión y una página de bienvenida optimizada para usuarios finales.
 
-### ¿Cómo se documentan los servicios?
-Utilizando técnicas como webcrawling y man-in-the-middle (mitm), hemos identificado y documentado los endpoints disponibles. Esto permite una integración más eficiente y asegura que toda vulnerabilidad encontrada es inherente al sistema base del SUM. Este proyecto busca mitigar riesgos documentando y extendiendo las capacidades de los servicios existentes.
+## Funcionalidades Principales
 
-### Requisitos
-- Node.js: v14 o superior.
-- MongoDB: Base de datos para gestionar usuarios y servicios.
-- NPM: Administrador de dependencias.
+1. **Inicio de Sesión**: Permite a los usuarios autenticarse en el sistema con credenciales básicas.
+2. **Landing Page**: Página de bienvenida que presenta la información inicial del sistema.
+3. **Gestión de Cursos**: Un formulario interactivo que permite la creación, edición y visualización de datos de cursos.
+4. **Datos Simulados**: Uso de un archivo JSON (`src/assets/data/registros.json`) para simular datos en el sistema.
+5. **Recursos Visuales**: Imágenes personalizadas para mejorar la experiencia de usuario.
 
-### Configuración e Instalación
-1. Clonar el repositorio:
-git clone "URL_DEL_REPOSITORIO"
-cd sum-api-main
-2. Instalar dependencias:
-npm install
-3. Configurar las variables de entorno: Copiar el archivo .env.example como .env y editar los valores necesarios:
-PORT=3000
-, MONGO_URI = URI_DE_MONGODB
-, SECRET = CLAVE_SECRETA
-4. Iniciar el servidor:
-npm start
+## Configuración y Uso
 
-### Uso del Proyecto
-#### Rutas principales:
+### Requisitos Previos
 
-- Autenticación:
-POST /applications/login: Iniciar sesión.
-POST /applications/register: Registro de usuarios.
-- Operaciones de Cursos:
-GET /operations/cursos: Listar cursos.
-- Administración:
-POST /admin/register_policy: Registro de políticas administrativas.
+## Se uso lo siguiente para el desarrollo
+- Angular CLI: 15.1.6
+- Node: 18.16.0
+- Package Manager: npm 9.5.1
+- OS: win32 x64
+- *La lista se irá actualizando dependiendo del desarrollo*
+  
+Antes de comenzar, asegúrate de contar con los siguientes elementos instalados:
 
-- Pruebas: Ejecutar pruebas automatizadas: npm test
+- **Node.js**: Recomendado >= v14.x.
+- **Angular CLI**: Recomendado >= v15.x.
 
-- Claves API: Generar claves únicas para autenticación con generate_api_key.js.
+### Pasos de Instalación
+
+1. **Clonar el repositorio**:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd UX-PROYECTO-SALONES
+2. **Instalar dependencias**:
+   ```bash
+   npm install
+3. **Iniciar el servidor de desarrollo**:
+   ```bash
+   ng serve
+4. **Acceso a la aplicación**:
+  Ingresa a http://localhost:4200 en tu navegador.
+
+### Archivos Clave y Recursos Visuales
+
+## Archivos Clave
+
+- **package.json**: Contiene las dependencias del proyecto.
+- **angular.json**: Configuración del framework Angular.
+- **registros.json**: Datos de ejemplo para simular funcionalidades.
+- **styles.scss**: Archivos de estilos globales.
+- **Imágenes**: Logos y recursos visuales ubicados en `src/assets/images/`.
+
+## Recursos Visuales
+
+- **Logo Principal**: `/assets/images/logo_blanco.png`
+- **Logo Alternativo**: `/assets/images/logo_sum.png`
+- **Avatar**: `/assets/images/👽.jpg`
+
+## Contribución
+
+Si deseas contribuir, por favor:
+
+1. Realiza un fork del repositorio.
+2. Realiza tus modificaciones en una rama específica.
+3. Envía un pull request explicando los cambios realizados.
+
+## Licencia
+
+Este proyecto está distribuido bajo la Licencia MIT. Puedes modificar y distribuir el código según las condiciones establecidas.
+
