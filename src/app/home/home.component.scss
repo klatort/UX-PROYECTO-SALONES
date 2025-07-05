@@ -783,3 +783,53 @@
   }
 }
 
+.help-guide-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 900;
+  background-color: #3f51b5; /* Primary color */
+  color: white;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  
+  &:hover {
+    background-color: #303f9f; /* Darker shade of primary */
+  }
+  
+  mat-icon {
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+/* Responsive styles for help guide button */
+@media screen and (max-width: 768px) {
+  .help-guide-button {
+    bottom: 16px;
+    left: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .help-guide-button {
+    bottom: 14px;
+    left: 14px;
+    transform: scale(0.9);
+    /* Ensure the icon stays centered on smaller screens */
+    width: 36px;
+    height: 36px;
+  }
+}
+

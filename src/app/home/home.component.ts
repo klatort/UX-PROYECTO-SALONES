@@ -50,10 +50,14 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('hasVisitedBefore', 'true');
   }
   
-  // Method kept for compatibility
-  resetWelcomeOverlay(): void {
-    localStorage.removeItem('hasVisitedBefore');
+  // Show welcome overlay/help guide when user requests it
+  showHelpGuide(): void {
     this.showWelcomeOverlay = true;
+  }
+  
+  // Method kept for backward compatibility
+  resetWelcomeOverlay(): void {
+    this.showHelpGuide();
   }
 
   updateCursos() {

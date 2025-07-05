@@ -158,6 +158,11 @@
     <button (click)="openCursos()" class="floating-add-button" mat-fab color="warn" aria-label="Agregar curso">
       <mat-icon aria-hidden="true">add</mat-icon>
     </button>
+    
+    <!-- Help guide button to show instructions -->
+    <button (click)="showHelpGuide()" class="help-guide-button" mat-mini-fab aria-label="Ver guía de ayuda">
+      <mat-icon aria-hidden="true">help_outline</mat-icon>
+    </button>
   </main>
 
   <!-- Welcome overlay for first-time users -->
@@ -175,7 +180,7 @@
       <p class="welcome-intro">Tu herramienta para organizar tus cursos de manera sencilla</p>
       
       <div class="welcome-steps">
-        <h2 class="welcome-steps-title">Guía Rápida</h2>
+        <h2 class="welcome-steps-title">Guía de Usuario</h2>
         
         <div class="welcome-step">
           <div class="step-number-circle">1</div>
@@ -212,7 +217,7 @@
       
       <div class="button-container">
         <button (click)="closeWelcomeOverlay()" mat-raised-button color="warn" class="start-button">
-          ¡Empezar ahora!
+          ¡Entendido!
         </button>
       </div>
     </div>
