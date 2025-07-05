@@ -27,11 +27,33 @@ import { LoginComponent } from '../login/login.component';
 export class HomeComponent implements OnInit {
   cursos: Array<any> = [];
   animationStates = {};
+  showWelcomeOverlay = false;
 
   constructor(private cookieService: CookieService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.updateCursos();
+    this.checkFirstTimeVisit();
+  }
+
+  // Check if this is the first time the user visits the app
+  checkFirstTimeVisit(): void {
+    const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
+    if (!hasVisitedBefore) {
+      this.showWelcomeOverlay = true;
+    }
+  }
+
+  // Close the welcome overlay and set the flag in local storage
+  closeWelcomeOverlay(): void {
+    this.showWelcomeOverlay = false;
+    localStorage.setItem('hasVisitedBefore', 'true');
+  }
+  
+  // Method kept for compatibility
+  resetWelcomeOverlay(): void {
+    localStorage.removeItem('hasVisitedBefore');
+    this.showWelcomeOverlay = true;
   }
 
   updateCursos() {
@@ -132,5 +154,9 @@ export class HomeComponent implements OnInit {
     link.download = 'cursos.json';
     link.click();
     URL.revokeObjectURL(url);
+  }
+  
+  openMap(): void {
+    window.open('https://smart-campus-fisi.vercel.app', '_blank');
   }
 }

@@ -47,6 +47,18 @@
             <span class="button-text">Login</span>
           </div>
         </button>
+        <button 
+          (click)="openMap()"
+          mat-raised-button
+          class="op-button"
+          aria-label="Ver mapa del campus"
+          color="warn"
+        >
+          <div class="button-content">
+            <mat-icon aria-hidden="true" class="button-icon">map</mat-icon>
+            <span class="button-text">Mapa</span>
+          </div>
+        </button>
       </nav>
     </mat-toolbar>
   </header>
@@ -117,7 +129,10 @@
                     <p class="course-name">{{ curso.curso }}</p>
                     <p class="course-professor">{{ curso.profesor }}</p>
                     <p class="course-section">Sección {{ curso.seccion }}</p>
-                    <h5 class="course-room">Salón: NP-101</h5>
+                    <h5 class="course-room">
+                      <span>Salón: NP-101</span>
+                      <span class="course-time">{{curso.horario || '10:00 - 12:00'}}</span>
+                    </h5>
                   </div>
                   <div class="course-actions">
                     <button
@@ -144,4 +159,62 @@
       <mat-icon aria-hidden="true">add</mat-icon>
     </button>
   </main>
+
+  <!-- Welcome overlay for first-time users -->
+  <div *ngIf="showWelcomeOverlay" class="welcome-overlay">
+    <div class="welcome-content">
+      <button (click)="closeWelcomeOverlay()" class="close-welcome" mat-icon-button>
+        <mat-icon aria-label="Cerrar guía de inicio">close</mat-icon>
+      </button>
+      
+      <div class="welcome-header">
+        <img class="welcome-logo" src="assets/images/logo_sum.png" alt="Logo de la aplicación">
+        <h1 class="welcome-title">¡Bienvenido a Chapa tu aula!</h1>
+      </div>
+      
+      <p class="welcome-intro">Tu herramienta para organizar tus cursos de manera sencilla</p>
+      
+      <div class="welcome-steps">
+        <h2 class="welcome-steps-title">Guía Rápida</h2>
+        
+        <div class="welcome-step">
+          <div class="step-number-circle">1</div>
+          <div class="step-content">
+            <h3>Agrega tus cursos</h3>
+            <p>Haz clic en el botón <mat-icon inline class="inline-icon">add</mat-icon> ubicado en la parte inferior derecha.</p>
+          </div>
+        </div>
+        
+        <div class="welcome-step">
+          <div class="step-number-circle">2</div>
+          <div class="step-content">
+            <h3>Completa los detalles</h3>
+            <p>Llena la información del curso como nombre, profesor, sección, etc.</p>
+          </div>
+        </div>
+        
+        <div class="welcome-step">
+          <div class="step-number-circle">3</div>
+          <div class="step-content">
+            <h3>Guarda y organiza</h3>
+            <p>Tu curso aparecerá organizado por carrera y ciclo en el horario principal.</p>
+          </div>
+        </div>
+        
+        <div class="welcome-step">
+          <div class="step-number-circle">4</div>
+          <div class="step-content">
+            <h3>Más opciones</h3>
+            <p>Usa los botones en la barra superior para exportar/importar tu horario o acceder al mapa del campus <mat-icon inline class="inline-icon">map</mat-icon>.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="button-container">
+        <button (click)="closeWelcomeOverlay()" mat-raised-button color="warn" class="start-button">
+          ¡Empezar ahora!
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

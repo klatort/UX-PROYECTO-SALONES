@@ -91,6 +91,11 @@ export class FormCourseComponent implements OnInit {
   }
 
   addCurso() {
+    // Generate a random time slot for demonstration purposes
+    const startHour = Math.floor(Math.random() * 11) + 8; // Random hour between 8 and 18
+    const endHour = startHour + Math.floor(Math.random() * 3) + 1; // Class length between 1-3 hours
+    const timeSlot = `${startHour}:00 - ${endHour}:00`;
+    
     const curso = {
       'carrera': this.firstFormGroup.get('carrera').value,
       'plan': this.secondFormGroup.get('plan').value,
@@ -98,6 +103,7 @@ export class FormCourseComponent implements OnInit {
       'curso': this.thirdFormGroup.get('curso').value.curso,
       'seccion': this.thirdFormGroup.get('curso').value.seccion,
       'profesor': this.thirdFormGroup.get('curso').value.profesor,
+      'horario': timeSlot, // Add the time slot
     };
     const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
     this.cookieService.set(cookieName, JSON.stringify(curso));
