@@ -1,16 +1,16 @@
-<div style="height: 100vh; width: 100vw; background-color: white">
+<div class="app-container">
   <header>
-    <mat-toolbar style="justify-content: space-between" color="primary">
-      <div style="display: flex">
+    <mat-toolbar color="primary" class="toolbar-responsive">
+      <div class="logo-container">
         <img
-          style="padding: 1rem 1rem 0 0"
+          class="logo"
           src="assets/images/logo_blanco.png"
           height="52"
           alt="Logo de la aplicación"
         />
-        <h1><span>Chapa tu aula! 📅</span></h1>
+        <h1 class="app-title"><span>Chapa tu aula! 📅</span></h1>
       </div>
-      <nav aria-label="Opciones principales">
+      <nav aria-label="Opciones principales" class="nav-buttons">
         <button
           (click)="exportCursos()"
           mat-raised-button
@@ -18,8 +18,10 @@
           aria-label="Exportar cursos"
           color="warn"
         >
-          <mat-icon aria-hidden="true">upload_2</mat-icon>
-          <span>Exportar</span>
+          <div class="button-content">
+            <mat-icon aria-hidden="true" class="button-icon">upload</mat-icon>
+            <span class="button-text">Exportar</span>
+          </div>
         </button>
         <button
           (click)="importCursos()"
@@ -28,8 +30,10 @@
           aria-label="Importar cursos"
           color="warn"
         >
-          <mat-icon aria-hidden="true">download_2</mat-icon>
-          <span>Importar</span>
+          <div class="button-content">
+            <mat-icon aria-hidden="true" class="button-icon">download</mat-icon>
+            <span class="button-text">Importar</span>
+          </div>
         </button>
         <button
           (click)="openLogin()"
@@ -38,15 +42,17 @@
           aria-label="Iniciar sesión"
           color="warn"
         >
-          <mat-icon aria-hidden="true">login</mat-icon>
-          <span>Login</span>
+          <div class="button-content">
+            <mat-icon aria-hidden="true" class="button-icon">login</mat-icon>
+            <span class="button-text">Login</span>
+          </div>
         </button>
       </nav>
     </mat-toolbar>
   </header>
   <main class="content-wrapper">
     <div *ngIf="cursos == null" class="empty-courses">
-      <p style="color: #a8a29e; font-size: 2rem">
+      <p class="empty-message">
         No hay cursos registrados actualmente, has click en el botón de abajo
         para agregar tus cursos! 📖
       </p>
@@ -60,20 +66,20 @@
       class="virtual-scroll"
     >
       <div
-        style="margin: 2rem 4rem"
+        class="course-container"
         *cdkVirtualFor="let carrera of cursos | keyvalue"
       >
         <h2 [@slideRight]="animationStates[carrera.key] || 'initial'">
           {{ carrera.key }}
         </h2>
-        <div style="margin: 1rem" *ngFor="let plan of carrera.value | keyvalue">
+        <div class="plan-container" *ngFor="let plan of carrera.value | keyvalue">
           <h3
             [@slideRight]="animationStates[carrera.key + plan.key] || 'initial'"
           >
             Plan {{ plan.key }}
           </h3>
           <mat-card
-            style="margin: 1rem"
+            class="course-card"
             *ngFor="let ciclo of plan.value | keyvalue"
           >
             <mat-card-header>
@@ -85,13 +91,13 @@
               >
                 <h1
                   *ngIf="ciclo.key != 'Electivo'"
-                  style="margin: -6px 0; margin-left: -3px"
+                  class="cycle-title"
                 >
                   Ciclo °{{ ciclo.key }}
                 </h1>
                 <h1
                   *ngIf="ciclo.key == 'Electivo'"
-                  style="margin: -6px 0; margin-left: -3px"
+                  class="cycle-title"
                 >
                   {{ ciclo.key }}s
                 </h1>
@@ -99,37 +105,33 @@
             </mat-card-header>
             <mat-card-content>
               <div *ngFor="let curso of ciclo.value; let last = last">
-                <div
-                  style="
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                  "
-                >
+                <div class="course-item">
                   <div
+                    class="course-details"
                     [@slideRight]="
                       animationStates[
                         carrera.key + plan.key + ciclo.key + curso.curso
                       ] || 'initial'
                     "
                   >
-                    <p style="font-weight: bold">{{ curso.curso }}</p>
-                    <p>{{ curso.profesor }}</p>
-                    <p matListItemLine>Sección {{ curso.seccion }}</p>
-                    <h5>Salón: NP-101</h5>
+                    <p class="course-name">{{ curso.curso }}</p>
+                    <p class="course-professor">{{ curso.profesor }}</p>
+                    <p class="course-section">Sección {{ curso.seccion }}</p>
+                    <h5 class="course-room">Salón: NP-101</h5>
                   </div>
-                  <div>
+                  <div class="course-actions">
                     <button
                       (click)="deleteCurso(curso)"
                       mat-mini-fab
-                      style="margin: 10px"
+                      class="delete-button"
                       color="warn"
+                      aria-label="Eliminar curso"
                     >
                       <mat-icon>delete</mat-icon>
                     </button>
                   </div>
                 </div>
-                <mat-divider *ngIf="!last" style="margin: 1rem 0"></mat-divider>
+                <mat-divider *ngIf="!last" class="course-divider"></mat-divider>
               </div>
             </mat-card-content>
           </mat-card>

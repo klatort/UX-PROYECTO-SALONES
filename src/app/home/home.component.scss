@@ -1,13 +1,51 @@
-.toolbar {
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
   display: flex;
-  justify-content: right;
-  margin: 20px;
+  flex-direction: column;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.toolbar-responsive {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-wrap: wrap;
+  height: auto; /* Allow toolbar to expand on smaller screens */
+  min-height: 64px; /* Maintain minimum height */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo {
+  padding: 1rem 1rem 0 0;
+  height: 52px;
+  max-width: 100%; /* Ensure logo doesn't overflow */
+}
+
+.app-title {
+  margin: 0;
+  font-size: clamp(1.2rem, 4vw, 1.8rem); /* Responsive font size */
+  white-space: nowrap;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px; /* Consistent spacing between buttons */
 }
 
 .content-wrapper {
   position: relative;
   height: calc(100vh - 64px); /* Subtract toolbar height */
   overflow: hidden; /* Prevent scrollbar jumps */
+  flex: 1;
 }
 
 .virtual-scroll {
@@ -15,6 +53,7 @@
   width: 100%;
   scrollbar-width: thin; /* For Firefox */
   scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* For Firefox */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 /* Style scrollbars for better usability */
@@ -60,6 +99,13 @@
   position: relative;
 }
 
+.empty-message {
+  color: #a8a29e;
+  font-size: clamp(1.2rem, 5vw, 2rem); /* Responsive font size */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .arrow-container {
   position: fixed;
   bottom: 85px;
@@ -73,11 +119,11 @@
 }
 
 .arrow {
-  font-size: 48px;
-  color: #a8a29e; /* Revert to the previous gray color */
+  font-size: clamp(36px, 8vw, 48px); /* Responsive font size */
+  color: #a8a29e; /* Gray color */
   line-height: 1;
-  width: 48px;
-  height: 48px;
+  width: auto; /* Auto width to adjust to font size */
+  height: auto; /* Auto height to adjust to font size */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +142,11 @@
 }
 
 .op-button {
-  margin: 0 10px;
+  margin: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
   
   &:focus-visible {
     outline: 2px solid #1976d2;
@@ -104,19 +154,186 @@
   }
 }
 
+.button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+  line-height: 1;
+}
+
+.button-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Course container styles */
+.course-container {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.plan-container {
+  margin: 1rem 0;
+}
+
+.course-card {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cycle-title {
+  margin: -6px 0;
+  margin-left: -3px;
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+.course-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.course-name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.course-professor,
+.course-section {
+  margin-bottom: 2px;
+}
+
+.course-room {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.course-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+.delete-button {
+  margin: 4px;
+}
+
+.course-divider {
+  margin: 1rem 0;
+}
+
 /* Responsive adjustments */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+  .toolbar-responsive {
+    padding: 0 8px;
+  }
+  
+  .logo {
+    padding: 0.5rem 0.5rem 0 0;
+    height: 40px;
+  }
+  
   .floating-add-button {
     bottom: 16px;
     right: 16px;
   }
   
   .op-button {
-    margin: 0 5px;
+    margin: 0 4px;
+    min-width: 0;
+    padding: 0 12px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  .empty-courses p {
-    font-size: 1.5rem !important;
+  .button-text {
+    display: none;
+  }
+  
+  .button-icon {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .arrow-container {
+    bottom: 70px;
+    right: 20px;
+  }
+  
+  .course-container {
+    padding: 0.5rem;
+  }
+  
+  h2, h3 {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+  }
+  
+  .course-item {
+    padding: 0.25rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .toolbar-responsive {
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .logo-container {
+    margin-bottom: 8px;
+  }
+  
+  .nav-buttons {
+    width: 100%;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .content-wrapper {
+    height: calc(100vh - 112px); /* Adjust for taller toolbar */
+  }
+  
+  .course-details {
+    width: 100%;
+  }
+  
+  .course-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .course-card {
+    margin: 0.5rem 0;
   }
 }
 
@@ -129,4 +346,58 @@
 
 .highlight {
   animation: pulse 0.5s ease-in-out;
+}
+
+/* Super small screens (mobile phones in portrait) */
+@media screen and (max-width: 350px) {
+  .toolbar-responsive {
+    padding: 4px;
+  }
+  
+  .logo {
+    height: 30px;
+    padding: 0.5rem 0.25rem 0 0;
+  }
+  
+  .nav-buttons {
+    margin-top: 4px;
+  }
+  
+  .op-button {
+    padding: 0 4px;
+    margin: 0 2px;
+    height: 32px;
+    width: 32px;
+  }
+  
+  .arrow-container {
+    bottom: 60px;
+    right: 16px;
+  }
+  
+  .floating-add-button {
+    bottom: 12px;
+    right: 12px;
+    transform: scale(0.9);
+  }
+  
+  .button-icon {
+    font-size: 18px;
+  }
+  
+  .course-container {
+    padding: 0.25rem;
+  }
+  
+  .course-card {
+    margin: 0.5rem 0;
+  }
+  
+  .cycle-title {
+    font-size: 1.1rem;
+  }
+  
+  .delete-button {
+    transform: scale(0.8);
+  }
 }

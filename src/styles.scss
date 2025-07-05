@@ -101,8 +101,79 @@ body {
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .mat-toolbar {
     padding: 0 8px;
+  }
+  
+  .mat-dialog-container {
+    padding: 16px !important;
+  }
+  
+  .mat-card {
+    padding: 12px !important;
+  }
+  
+  .mat-card-title {
+    font-size: 18px !important;
+  }
+  
+  .mat-card-content {
+    padding: 8px 0 !important;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mat-toolbar {
+    padding: 0 4px;
+    height: auto !important;
+    min-height: 56px;
+  }
+  
+  .mat-dialog-container {
+    padding: 12px !important;
+    max-width: 100vw !important;
+  }
+  
+  .mat-button,
+  .mat-raised-button,
+  .mat-flat-button {
+    min-width: 64px !important;
+    padding: 0 8px !important;
+  }
+  
+  h1 {
+    font-size: 20px !important;
+  }
+  
+  h2 {
+    font-size: 18px !important;
+  }
+  
+  h3 {
+    font-size: 16px !important;
+  }
+  
+  .mat-card-title {
+    font-size: 16px !important;
+  }
+  
+  /* Improve touch targets for mobile */
+  .mat-button,
+  .mat-icon-button,
+  .mat-raised-button,
+  .mat-fab,
+  .mat-mini-fab {
+    min-height: 36px !important;
+    line-height: 36px !important;
+  }
+  
+  /* Ensure forms are more usable on mobile */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevent zoom on iOS */
   }
 }

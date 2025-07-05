@@ -1,23 +1,23 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="responsive-toolbar">
   <h1><span>Curso 📚</span></h1>
 </mat-toolbar>
-<mat-stepper orientation="horizontal" linear>
+<mat-stepper [orientation]="(isSmallScreen$ | async) ? 'vertical' : 'horizontal'" linear class="responsive-stepper">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Selecciona tu carrera</ng-template>
       <mat-button-toggle-group
         formControlName="carrera"
         (change)="watchPlanes()"
-        style="display: flex; margin: 1rem 0"
+        class="responsive-toggle-group"
       >
         <mat-button-toggle
           *ngFor="let carrera of carrerasArray"
           [value]="carrera"
-          style="width: 100%"
+          class="toggle-button"
           >{{ carrera }}</mat-button-toggle
         >
       </mat-button-toggle-group>
-      <div>
+      <div class="button-container">
         <button
           mat-flat-button
           matStepperNext

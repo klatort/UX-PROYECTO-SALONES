@@ -1,7 +1,87 @@
+.responsive-toolbar {
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.responsive-stepper {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.responsive-toggle-group {
+  display: flex;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.toggle-button {
+  width: 100%;
+  min-height: 48px;
+}
+
+.button-container {
+  display: flex;
+  margin: 1rem 0;
+}
+
 .flow-button {
   margin: 0 5px 0 0;
+  min-width: 100px;
 }
 
 form {
   padding: 0 1rem;
+  max-width: 100%;
+}
+
+/* Make radio buttons wrap on small screens */
+::ng-deep .mat-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+::ng-deep .mat-radio-button {
+  margin: 8px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  form {
+    padding: 0 0.5rem;
+  }
+  
+  .responsive-toggle-group {
+    flex-direction: column;
+  }
+  
+  ::ng-deep .mat-step-label {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  form {
+    padding: 0 0.25rem;
+  }
+  
+  ::ng-deep .mat-stepper-horizontal-line {
+    margin: 0 4px !important;
+  }
+  
+  ::ng-deep .mat-step-icon {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+  }
+  
+  ::ng-deep .mat-step-label {
+    font-size: 12px;
+  }
+  
+  .button-container {
+    justify-content: center;
+  }
 }

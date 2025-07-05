@@ -4,6 +4,9 @@ import { FloatLabelType } from '@angular/material/form-field';
 import * as registros from '../../assets/data/registros.json';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form-course',
@@ -25,9 +28,21 @@ export class FormCourseComponent implements OnInit {
   carrerasArray: string[] | undefined;
   planesArray: string[] | undefined;
   cursosArray: string[] | undefined;
+  
+  isSmallScreen$: Observable<boolean>;
 
-  constructor(private _formBuilder: FormBuilder, public cookieService: CookieService, public dialogRef: MatDialogRef<FormCourseComponent>
-  ) { }
+  constructor(
+    private _formBuilder: FormBuilder, 
+    public cookieService: CookieService, 
+    public dialogRef: MatDialogRef<FormCourseComponent>,
+    private breakpointObserver: BreakpointObserver
+  ) { 
+    this.isSmallScreen$ = this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.XSmall])
+      .pipe(
+        map(result => result.matches),
+        shareReplay()
+      );
+  }
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       carrera: ['', Validators.required]
