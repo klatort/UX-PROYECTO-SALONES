@@ -4,22 +4,40 @@
   margin: 20px;
 }
 
+.content-wrapper {
+  position: relative;
+  height: calc(100vh - 64px); /* Subtract toolbar height */
+}
+
+.virtual-scroll {
+  height: 100%;
+  width: 100%;
+}
+
+.floating-add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure button appears above other content */
+}
+
 .empty-courses {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  flex-direction: column;
   align-items: center;
-  margin: 0 30vw;
-  height: calc(100vh - 160px);
-}
-.op-button {
-  margin: 0 10px;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 0 20px;
 }
 
 .arrow {
+  font-size: 48px;
+  margin-top: 20px;
+  transform: rotate(45deg);
   color: #a8a29e;
-  position: absolute;
-  transform: scale(4);
-  bottom: 100px;
-  right: 100px;
+}
+
+.op-button {
+  margin: 0 10px;
 }

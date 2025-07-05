@@ -41,8 +41,8 @@
     </button>
     </div>
   </mat-toolbar>
-  <div>
-    <div *ngIf="cursos == null" class="empty-courses">
+  <div class="content-wrapper">
+    <div *ngIf="cursos == null" class="empty-cursos">
       <p style="color: #a8a29e; font-size: 2rem">
         No hay cursos registrados actualmente, has click en el botón de abajo
         para agregar tus cursos! 📖
@@ -52,7 +52,7 @@
     <cdk-virtual-scroll-viewport
       *ngIf="cursos != null"
       itemSize="7"
-      style="height: calc(100vh - 160px)"
+      class="virtual-scroll"
     >
       <div
         style="margin: 2rem 4rem"
@@ -131,9 +131,9 @@
         </div>
       </div>
     </cdk-virtual-scroll-viewport>
-  </div>
-  <div class="toolbar">
-    <button (click)="openCursos()" class="add-button" mat-fab color="warn">
+    
+    <!-- Floating action button positioned over the scroll view -->
+    <button (click)="openCursos()" class="floating-add-button" mat-fab color="warn">
       <mat-icon>add</mat-icon>
     </button>
   </div>
