@@ -6,11 +6,13 @@
     [formGroup]="loginForm"
     (ngSubmit)="login()"
     style="display: flex; gap: 2rem; flex-direction: row; margin: 1.5rem 3.5rem; width: auto"
+    aria-labelledby="login-title"
   >
     <div style="background-color: #70191c; margin: auto 0; border-radius: 20px 0; padding: 1rem">
       <img
         src="assets/images/logo_sum.png"
         height="100"
+        alt="Logo del Sistema Único de Matrícula"
       />
     </div>
     <div style="display: flex; flex-direction: column; width: 15vw;">
@@ -46,14 +48,20 @@
           Contraseña debe tener al menos 6 caracteres
         </mat-error>
       </mat-form-field>
+      <span class="sr-only" aria-live="polite" *ngIf="loading">
+        Cargando, por favor espere...
+      </span>
       <button *ngIf="!loading" mat-raised-button color="primary" type="submit">
         Ingresar
       </button>
-      <mat-progress-bar
-        *ngIf="loading"
-        color="primary"
-        mode="indeterminate"
-      ></mat-progress-bar>
+      <div *ngIf="loading" class="loading-container">
+        <mat-progress-bar
+          color="primary"
+          mode="indeterminate"
+          aria-label="Cargando"
+        ></mat-progress-bar>
+        <p class="loading-message">Iniciando sesión, por favor espere...</p>
+      </div>
     </div>
   </form>
 </div>

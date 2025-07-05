@@ -73,3 +73,36 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+/* Accessibility Improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Improved focus indicators for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* High contrast mode improvements */
+@media (forced-colors: active) {
+  button, a {
+    forced-color-adjust: none;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+  .mat-toolbar {
+    padding: 0 8px;
+  }
+}

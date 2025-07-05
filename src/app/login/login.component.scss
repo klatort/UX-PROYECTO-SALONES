@@ -1,0 +1,57 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Custom snackbar styles */
+::ng-deep .error-snackbar {
+  background-color: #f44336;
+  color: white;
+}
+
+::ng-deep .warning-snackbar {
+  background-color: #ff9800;
+  color: white;
+}
+
+::ng-deep .mat-simple-snackbar-action {
+  color: white;
+}
+
+/* Focus indicators for accessibility */
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* Loading indicator styles */
+.loading-container {
+  margin-top: 10px;
+}
+
+.loading-message {
+  margin-top: 8px;
+  text-align: center;
+  color: #1976d2;
+  font-size: 14px;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 600px) {
+  form {
+    flex-direction: column !important;
+    margin: 1rem !important;
+  }
+  
+  div[style*="width: 15vw"] {
+    width: 100% !important;
+  }
+}
