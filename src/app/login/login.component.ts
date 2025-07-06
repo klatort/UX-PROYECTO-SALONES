@@ -67,10 +67,27 @@ export class LoginComponent {
       
       try {
         const { courses }: any = await lastValueFrom(this.http.get(`${environment.apiUrl}/user/cursos`, { headers, withCredentials: true }));
+        console.log('Received courses data:', courses);
+        
+        // Debug method to log course data
+        this.debugCourseData(courses);
         
         if (courses && courses.length > 0) {
           // Store courses in cookies with proper attributes
-          courses.forEach((curso: any) => { 
+          courses.forEach((curso: any) => {
+            // Process the horario field - convert from number to string format if needed
+            if (curso.horario === 0 || curso.horario === null || curso.horario === undefined) {
+              curso.horario = '10:00 - 12:00'; // Default time slot when horario is 0 or missing
+            } else if (typeof curso.horario === 'number') {
+              // Convert number to time format based on some logic
+              // For example, 0 = '08:00 - 10:00', 1 = '10:00 - 12:00', etc.
+              const timeSlots = [
+                '08:00 - 10:00', '10:00 - 12:00', '12:00 - 14:00', 
+                '14:00 - 16:00', '16:00 - 18:00', '18:00 - 20:00'
+              ];
+              curso.horario = timeSlots[curso.horario % timeSlots.length];
+            }
+            
             const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
             this.cookieService.set(cookieName, JSON.stringify(curso), undefined, '/', undefined, true, 'Strict');
           });
@@ -115,5 +132,29 @@ export class LoginComponent {
     } finally {
       this.loading = false;
     }
+  }
+  
+  // Debug method to log course data
+  debugCourseData(courses: any[]) {
+    if (!courses || !Array.isArray(courses)) {
+      console.warn('No courses data to debug or invalid format');
+      return;
+    }
+    
+    console.group('Course Data Debug');
+    console.log('Total courses:', courses.length);
+    
+    // Check for horario field formats
+    const horarioTypes = courses.map(c => typeof c.horario);
+    console.log('Horario field types:', [...new Set(horarioTypes)]);
+    console.log('Horario values sample:', courses.slice(0, 3).map(c => c.horario));
+    
+    // Check for aula field
+    const hasAulaField = courses.every(c => 'aula' in c);
+    console.log('All courses have aula field:', hasAulaField);
+    console.log('Aula values sample:', courses.slice(0, 3).map(c => c.aula));
+    
+    console.log('First course full structure:', courses[0]);
+    console.groupEnd();
   }
 }

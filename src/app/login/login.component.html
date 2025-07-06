@@ -51,14 +51,15 @@
       <span class="sr-only" aria-live="polite" *ngIf="loading">
         Cargando, por favor espere...
       </span>
-      <button *ngIf="!loading" mat-raised-button color="warn" type="submit">
+      <button *ngIf="!loading" mat-raised-button color="primary" type="submit">
         Ingresar
       </button>
       <div *ngIf="loading" class="loading-container">
         <mat-progress-bar
-          color="warn"
+          color="primary"
           mode="indeterminate"
           aria-label="Cargando"
+          class="custom-progress-bar"
         ></mat-progress-bar>
         <p class="loading-message">Iniciando sesión, por favor espere...</p>
       </div>

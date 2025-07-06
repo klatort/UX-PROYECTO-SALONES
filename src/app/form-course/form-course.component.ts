@@ -96,6 +96,10 @@ export class FormCourseComponent implements OnInit {
     const endHour = startHour + Math.floor(Math.random() * 3) + 1; // Class length between 1-3 hours
     const timeSlot = `${startHour}:00 - ${endHour}:00`;
     
+    // Generate a random classroom for demonstration purposes
+    const aulas = ['NP-101', 'NP-102', 'NP-201', 'NP-202', '101', '102', '201', '202', 'AULA MAGNA', 'LABORATORIO'];
+    const randomAula = aulas[Math.floor(Math.random() * aulas.length)];
+    
     const curso = {
       'carrera': this.firstFormGroup.get('carrera').value,
       'plan': this.secondFormGroup.get('plan').value,
@@ -104,6 +108,7 @@ export class FormCourseComponent implements OnInit {
       'seccion': this.thirdFormGroup.get('curso').value.seccion,
       'profesor': this.thirdFormGroup.get('curso').value.profesor,
       'horario': timeSlot, // Add the time slot
+      'aula': randomAula, // Add the classroom
     };
     const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
     this.cookieService.set(cookieName, JSON.stringify(curso));

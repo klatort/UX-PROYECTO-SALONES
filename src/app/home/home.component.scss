@@ -100,7 +100,7 @@
 }
 
 .empty-message {
-  color: #a8a29e;
+  color: var(--gray-dark);
   font-size: clamp(1.2rem, 5vw, 2rem); /* Responsive font size */
   max-width: 600px;
   margin: 0 auto;
@@ -110,7 +110,7 @@
   margin: 0 auto 20px;
   font-size: 1.1rem;
   background-color: transparent;
-  color: #70191c; /* Match warn theme color */
+  color: var(--primary-color); /* Match warn theme color */
   border-color: transparent;
   
   &:hover {
@@ -118,7 +118,7 @@
   }
   
   &:focus-visible {
-    outline: 2px solid #70191c;
+    outline: 2px solid var(--primary-color);
     outline-offset: 2px;
   }
 }
@@ -135,7 +135,7 @@
 }
 
 .guide-title {
-  color: #70191c;
+  color: var(--primary-color);
   margin-top: 0;
   margin-bottom: 16px;
   font-size: 1.5rem;
@@ -157,7 +157,7 @@
 }
 
 .step-icon {
-  color: #70191c;
+  color: var(--primary-color);
   font-size: 24px;
   width: 24px;
   height: 24px;
@@ -175,7 +175,7 @@
 
 .step-number {
   font-weight: bold;
-  color: #70191c;
+  color: var(--primary-color);
   min-width: 15px;
 }
 
@@ -275,7 +275,7 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  color: #555;
+  color: var(--text-medium);
   z-index: 10;
 }
 
@@ -292,7 +292,7 @@
 }
 
 .welcome-title {
-  color: #70191c;
+  color: var(--primary-color);
   font-size: 2.2rem;
   margin: 0;
   text-align: center;
@@ -301,7 +301,7 @@
 
 .welcome-intro {
   text-align: center;
-  color: #555;
+  color: var(--text-medium);
   font-size: 1.2rem;
   margin-bottom: 40px;
   max-width: 450px;
@@ -315,8 +315,8 @@
 }
 
 .welcome-steps-title {
-  color: #70191c;
-  border-bottom: 1px solid #eee;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--gray-medium);
   padding-bottom: 8px;
   margin-bottom: 24px;
   text-align: center;
@@ -329,7 +329,7 @@
 }
 
 .step-number-circle {
-  background-color: #70191c;
+  background-color: var(--primary-color);
   color: white;
   width: 32px;
   height: 32px;
@@ -378,7 +378,7 @@
   position: relative;
   top: -1px;
   margin: 0 2px;
-  color: #70191c;
+  color: var(--primary-color);
 }
 
 /* Responsive adjustments for the welcome overlay */
@@ -429,7 +429,7 @@
   height: 36px;
   
   &:focus-visible {
-    outline: 2px solid #70191c; /* Match theme color */
+    outline: 2px solid var(--primary-color); /* Match theme color */
     outline-offset: 2px;
   }
 }
@@ -509,10 +509,15 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  
+  span:first-child {
+    font-weight: 500;
+    color: var(--primary-color); /* Match theme color */
+  }
 }
 
 .course-time {
-  color: #70191c; /* Match warn theme color */
+  color: var(--primary-color); /* Match warn theme color */
   font-weight: 500;
   margin-left: 8px;
 }
@@ -522,7 +527,7 @@
   align-items: center;
   margin-top: 4px;
   margin-bottom: 8px;
-  color: #70191c; /* Match warn theme color */
+  color: var(--primary-color); /* Match warn theme color */
   text-decoration: none;
   font-size: 0.9rem;
   transition: all 0.2s ease;
@@ -534,7 +539,7 @@
   }
   
   &:focus-visible {
-    outline: 2px solid #70191c;
+    outline: 2px solid var(--primary-color);
     outline-offset: 2px;
   }
 }
@@ -667,6 +672,10 @@
     margin-top: 4px;
   }
   
+  .course-room span:first-child {
+    margin-bottom: 2px;
+  }
+  
   .map-link {
     font-size: 0.8rem;
   }
@@ -750,7 +759,7 @@
 }
 
 .arrow {
-  color: #a8a29e; /* Match the empty-message text color */
+  color: var(--gray-dark); /* Match the empty-message text color */
   font-size: 36px;
   width: 36px;
   height: 36px;

@@ -130,7 +130,7 @@
                     <p class="course-professor">{{ curso.profesor }}</p>
                     <p class="course-section">Sección {{ curso.seccion }}</p>
                     <h5 class="course-room">
-                      <span>Salón: NP-101</span>
+                      <span>Salón: {{ curso.aula || 'Sin asignar' }}</span>
                       <span class="course-time">{{curso.horario || '10:00 - 12:00'}}</span>
                     </h5>
                   </div>
