@@ -7,6 +7,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+interface Course {
+  carrera: string;
+  plan: string;
+  ciclo: string;
+  curso: string;
+  seccion: string;
+  profesor: string;
+  horario: string | number;
+  aula?: string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,13 +26,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   loading = false;
   loginForm: FormGroup;
+  
+  private readonly timeSlots = [
+    '08:00 - 10:00', '10:00 - 12:00', '12:00 - 14:00', 
+    '14:00 - 16:00', '16:00 - 18:00', '18:00 - 20:00'
+  ];
+  
+  private readonly defaultHeaders = {
+    'Content-Type': 'application/json',
+    'x-api-secret': environment.apiSecretKey,
+    'x-api-key-id': environment.apiAccessKey
+  };
 
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
     private dialogRef: MatDialogRef<LoginComponent>,
     private readonly fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private readonly snackBar: MatSnackBar
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9.]+$/)]],
@@ -29,9 +51,8 @@ export class LoginComponent {
     });
   }
 
-  async login() {
+  async login(): Promise<void> {
     if (this.loginForm.invalid) {
-      // Show form validation errors
       this.loginForm.markAllAsTouched();
       return;
     }
@@ -39,122 +60,97 @@ export class LoginComponent {
     const { username, password } = this.loginForm.value;
 
     try {
-      const loginData = {
-        user: username,
-        password: password
-      };
-
       this.loading = true;
-      const headers = {
-        'Content-Type': 'application/json',
-        'x-api-secret': environment.apiSecretKey,
-        'x-api-key-id': environment.apiAccessKey
-      };
-
-      await lastValueFrom(this.http.post(`${environment.apiUrl}/user/login`, loginData, { headers, withCredentials: true, observe: 'response' }));
       
-      // Wait for cookies to be set
+      await lastValueFrom(
+        this.http.post(
+          `${environment.apiUrl}/user/login`, 
+          { user: username, password }, 
+          { headers: this.defaultHeaders, withCredentials: true, observe: 'response' }
+        )
+      );
+      
       await new Promise(resolve => setTimeout(resolve, 1000));
+      await this.fetchAndProcessCourses();
+      this.dialogRef.close(true);
       
-      // Check if we have any cookies at all rather than expecting specific ones
-      const cookies = this.cookieService.getAll();
-      console.log('Cookies received:', Object.keys(cookies));
-      
-      // Log cookie security settings for debugging
-      document.cookie.split(';').forEach(cookie => {
-        console.log('Cookie details:', cookie.trim());
-      });
-      
-      try {
-        const { courses }: any = await lastValueFrom(this.http.get(`${environment.apiUrl}/user/cursos`, { headers, withCredentials: true }));
-        console.log('Received courses data:', courses);
-        
-        // Debug method to log course data
-        this.debugCourseData(courses);
-        
-        if (courses && courses.length > 0) {
-          // Store courses in cookies with proper attributes
-          courses.forEach((curso: any) => {
-            // Process the horario field - convert from number to string format if needed
-            if (curso.horario === 0 || curso.horario === null || curso.horario === undefined) {
-              curso.horario = '10:00 - 12:00'; // Default time slot when horario is 0 or missing
-            } else if (typeof curso.horario === 'number') {
-              // Convert number to time format based on some logic
-              // For example, 0 = '08:00 - 10:00', 1 = '10:00 - 12:00', etc.
-              const timeSlots = [
-                '08:00 - 10:00', '10:00 - 12:00', '12:00 - 14:00', 
-                '14:00 - 16:00', '16:00 - 18:00', '18:00 - 20:00'
-              ];
-              curso.horario = timeSlots[curso.horario % timeSlots.length];
-            }
-            
-            const cookieName: string = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
-            this.cookieService.set(cookieName, JSON.stringify(curso), undefined, '/', undefined, true, 'Strict');
-          });
-          
-          this.snackBar.open(`${courses.length} cursos cargados correctamente`, 'Cerrar', {
-            duration: 3000
-          });
-        } else {
-          console.warn('No courses returned from API');
-          this.snackBar.open('No se encontraron cursos para cargar', 'Cerrar', {
-            duration: 4000
-          });
-        }
-        
-        this.dialogRef.close(true); // Pass success status
-      } catch (courseError) {
-        console.error('Error fetching courses:', courseError);
-        this.snackBar.open('El inicio de sesión fue exitoso, pero no se pudieron cargar los cursos', 'Cerrar', {
-          duration: 5000,
-          panelClass: ['warning-snackbar']
-        });
-        this.dialogRef.close(true); // Still close dialog as login was successful
-      }
-    } catch (error) {
-      console.error('Error de inicio de sesión:', error);
-      
-      // Show user-friendly error message
-      let errorMessage = 'Ocurrió un error al iniciar sesión';
-      
-      if (error.status === 401) {
-        errorMessage = 'Credenciales incorrectas. Por favor, inténtelo de nuevo.';
-      } else if (error.status === 0) {
-        errorMessage = 'No se puede conectar al servidor. Verifique su conexión.';
-      } else if (error.message) {
-        errorMessage = error.message;
-      }
-      
-      this.snackBar.open(errorMessage, 'Cerrar', {
-        duration: 5000,
-        panelClass: ['error-snackbar']
-      });
+    } catch (error: any) {
+      this.handleLoginError(error);
     } finally {
       this.loading = false;
     }
   }
   
-  // Debug method to log course data
-  debugCourseData(courses: any[]) {
-    if (!courses || !Array.isArray(courses)) {
-      console.warn('No courses data to debug or invalid format');
+  private async fetchAndProcessCourses(): Promise<void> {
+    let response;
+    
+    try {
+      response = await lastValueFrom<{courses: Course[]}>(
+        this.http.get<{courses: Course[]}>(
+          `${environment.apiUrl}/user/cursos`, 
+          { headers: this.defaultHeaders, withCredentials: true }
+        )
+      );
+    } catch {
+      this.showWarningMessage('El inicio de sesión fue exitoso, pero no se pudieron cargar los cursos');
       return;
     }
     
-    console.group('Course Data Debug');
-    console.log('Total courses:', courses.length);
+    const { courses } = response;
     
-    // Check for horario field formats
-    const horarioTypes = courses.map(c => typeof c.horario);
-    console.log('Horario field types:', [...new Set(horarioTypes)]);
-    console.log('Horario values sample:', courses.slice(0, 3).map(c => c.horario));
+    if (courses?.length > 0) {
+      this.processCourses(courses);
+      this.showSuccessMessage(courses.length);
+    } else {
+      this.showWarningMessage('No se encontraron cursos para cargar');
+    }
+  }
+  
+  private processCourses(courses: Course[]): void {
+    courses.forEach(curso => {
+      curso.horario = this.formatHorario(curso.horario);
+      
+      const cookieName = curso.carrera + curso.plan + curso.ciclo + curso.curso + curso.seccion + curso.profesor;
+      this.cookieService.set(cookieName, JSON.stringify(curso), undefined, '/', undefined, true, 'Strict');
+    });
+  }
+  
+  private formatHorario(horario: string | number): string {
+    if (horario === 0 || horario === null || horario === undefined) {
+      return '10:00 - 12:00';
+    } else if (typeof horario === 'number') {
+      return this.timeSlots[horario % this.timeSlots.length];
+    }
+    return horario;
+  }
+  
+  private showSuccessMessage(count: number): void {
+    this.snackBar.open(`${count} cursos cargados correctamente`, 'Cerrar', {
+      duration: 3000
+    });
+  }
+  
+  private showWarningMessage(message: string): void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 5000,
+      panelClass: ['warning-snackbar']
+    });
+  }
+  
+  private handleLoginError(error: any): void {
+    let errorMessage = 'Ocurrió un error al iniciar sesión';
     
-    // Check for aula field
-    const hasAulaField = courses.every(c => 'aula' in c);
-    console.log('All courses have aula field:', hasAulaField);
-    console.log('Aula values sample:', courses.slice(0, 3).map(c => c.aula));
+    if (error.status === 401) {
+      errorMessage = 'Credenciales incorrectas. Por favor, inténtelo de nuevo.';
+    } else if (error.status === 0) {
+      errorMessage = 'No se puede conectar al servidor. Verifique su conexión.';
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
     
-    console.log('First course full structure:', courses[0]);
-    console.groupEnd();
+    this.snackBar.open(errorMessage, 'Cerrar', {
+      duration: 5000,
+      panelClass: ['error-snackbar']
+    });
   }
 }
